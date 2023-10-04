@@ -138,6 +138,43 @@ h1{
     transition: .5s;
 }
 
+table, th, td {
+    border: 1px solid white;
+    border-collapse:collapse;
+    text-align: center;
+    }
+    .headertablepre th{
+        background-color: #FC6335;
+        font-size: 40px;
+        color: white;
+        height: 60px;
+        width: 400px;
+    }
+    .headertableclu th{
+        background-color: #f9b200;
+        font-size: 40px;
+        color: white;
+        height: 60px;
+        width: 400px;
+    }
+    .tableline1 td{
+        background-color: #033780;
+        font-size: 20px;
+        color: white;
+    }
+    .table1line2 td{
+        background-color: rgb(231, 231, 231);
+        font-size: 20px;
+        color: #033780;
+        height: 100px; 
+    }
+    .table2line2 td{
+        background-color: rgb(231, 231, 231);
+        font-size: 20px;
+        color: #033780;
+        height: 50px;
+    }
+
 /*---Segunda Pagina---*/
 
 #pagina2{
