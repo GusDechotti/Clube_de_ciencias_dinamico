@@ -7,22 +7,18 @@ export default {
       {
         name: 'turnomanha',
         type: 'string',
-        title: 'Turno manhã'
+        title: 'Horário turno manhã'
       },
       {
         name: `turnotarde`,
         type: `string`,
-        title: `Turno tarde`
+        title: `Horário turno tarde`
       },
       {
-        name:`diadasemana`,
-        type:`string`,
-        title:`Dias da semana`
-      },
-      {
-        name:`turma`,
-        type:`string`,
-        title:`Turma`
+        title: 'Dia da semana',
+        name: 'diadasemana',
+        type: 'reference',
+        to: [{type: 'diasdasemana'}]
       }
     ]
   }
