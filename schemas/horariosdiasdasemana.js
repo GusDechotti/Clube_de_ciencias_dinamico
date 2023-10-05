@@ -1,7 +1,7 @@
 export default{
     name:`diasdasemana`,
     type:`document`,
-    title:`Horários - Dias da semana`,
+    title:`Dias da semana`,
     fields: [
       {
         name:`diadasemana`,

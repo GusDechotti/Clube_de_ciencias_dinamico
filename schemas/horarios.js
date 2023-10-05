@@ -13,12 +13,6 @@ export default {
         name: `turnotarde`,
         type: `string`,
         title: `Horário turno tarde`
-      },
-      {
-        title: 'Dia da semana',
-        name: 'diadasemana',
-        type: 'reference',
-        to: [{type: 'diasdasemana'}]
       }
     ]
   }
