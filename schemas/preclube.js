@@ -12,9 +12,9 @@ export default
             type: 'string'
         },
         {
-            title: 'Imagem (URL)',
+            title: 'Imagem',
             name: 'imagem',
-            type: 'string'
+            type: 'image'
         },
         {
              

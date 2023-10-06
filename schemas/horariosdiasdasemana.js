@@ -1,17 +1,17 @@
 export default{
-    name:`diasdasemana`,
-    type:`document`,
-    title:`Dias da semana`,
-    fields: [
+  name: 'diaInfo',
+  type: 'document',
+  title: 'Informações dia da Semana',
+  fields: [
       {
-        name:`diadasemana`,
-        type:`string`,
-        title:`Dias da semana`
+          name: 'dias',
+          type: 'string',
+          title: 'Dia da Semana'
       },
       {
-        name:`serie`,
-        type:`string`,
-        title:`Série`
+          name: 'turmas',
+          type: 'string',
+          title: 'Turmas'
       }
-    ]
+  ]
 }
