@@ -1,25 +1,25 @@
-
-export default {
+export default
+{
     name: 'clube',
     type: 'document',
     title: 'Clube',
     fields: [
-      {
-        name: 'Imagem',
-        type: 'image',
-        title: 'Imagem'
-      },
-      
-      {
-        name: 'description',
-        type: 'string',
-        title: 'Descrição'
-      },
-
-      {
-        name: 'idade',
-        type: 'number',
-        title: 'Faixa-Etária'
-      }
+        {
+            title: 'Description',
+            name: 'description',
+            type: 'string'
+        },
+        {
+            title: 'Imagem',
+            name: 'imagem',
+            type: 'image'
+        },
+        {
+             
+        title: 'Horarios',
+        name: 'horarios',
+        type: 'reference',
+        to: [{type: 'horarios'}]
+        }
     ]
-  }
+}
