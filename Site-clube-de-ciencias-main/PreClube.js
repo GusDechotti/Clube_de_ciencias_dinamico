@@ -51,7 +51,7 @@ async function adicionaClube(){
                         <table class="tabela-horarios">
                         <tbody id="tabela-corpo">
                             <tr class="horarios-idade">
-                                <td colspan="2" class="idade-tabela">${horarioClube.horarios.idade}</td>
+                                <td colspan="2" class="headertablepre">${horarioClube.horarios.idade}</td>
                             </tr>
                             <tr>
                                 <td class="turno">TURNO: MANHÃ</td>
