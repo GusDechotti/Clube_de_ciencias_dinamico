@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <title>Noticias</title>
+    <style>
+       * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(#000000, #033780, #467DEB);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: white;
+  margin-left: 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+.divisoria-laranja {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  background-color: #FC6335;
+  width: 100%;
+  border-radius: 0 15px 15px 0;
+  display: flex;
+  margin-top: 30px;
+}
+
+.voltar {
+  position: absolute;
+  background-color: #FC6335;
+  padding: 5px;
+  right: 0%;
+  top: 0;
+  margin-top: 30px;
+  margin-left: 20px;
+  border-radius: 15px;
+  width: fit-content;
+  z-index: 99;
+}
+
+.voltar > a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+  padding: 100px 50px;
+}
+
+.container .card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  width: 350px;
+  height: 450px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
+  top: 100px;
+  transition: right 0.2s linear, bottom 0.2s linear, top 0.2s linear, left 0.2s linear, line-height 0.2s linear, z-index 0.2s linear;
+}
+
+.container .card:hover {
+  height: 450px;
+}
+
+.container .card .imgBX {
+  position: absolute;
+  width: 300px;
+  height: 220px;
+  background: #333;
+  top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.container .card:hover .imgBX {
+  top: -100px;
+  transform: scale(0.75);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.container .card .imgBX > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .card .content {
+  position: absolute;
+  top: 275px;
+  width: 100%;
+  padding: 0 30px;
+  text-align: center;
+  height: 50px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.container .card:hover .content {
+  top: 130px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.container .card .data {
+  position: absolute;
+  top: 425px;
+  width: 100%;
+  padding: 0 30px;
+  text-align: center;
+  height: 50px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.container .card:hover .data {
+  top: 425px;
+  height: 50px;
+}
+
+.container .card .content > p {
+  font-family: 'Inter', sans-serif;
+  top: 35px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.container .card .verMais {
+  position: absolute;
+  background-color: #033780;
+  top: 350px;
+  width: 50%;
+  padding: 0 30px;
+  text-align: center;
+  height: 50px;
+  overflow: hidden;
+  transition: 0.5s;
+  border-radius: 15px;
+}
+
+.container .card:hover .verMais:hover {
+  height: 60px;
+  width: 60%;
+  text-align: center;
+}
+
+.container .card:hover .verMais:hover > a {
+  display: flex;
+  position: absolute;
+  width: 50%;
+  left: 75px;
+  top: 20px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+}
+
+.container .card .verMais > a {
+  display: flex;
+  position: absolute;
+  width: 50%;
+  left: 60px;
+  top: 17.5px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  transition: 0.5s;
+}
+
+.container .card .subtitulos > p {
+  font-family: 'Inter', sans-serif;
+  top: 20px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.container .card .subtitulos {
+  position: absolute;
+  width: 80%;
+  padding: 0 30px;
+  text-align: center;
+  max-height: 125px;
+  max-width: 75%;
+  opacity: 0;
+  top: 220px;
+  transition: opacity 0.5s;
+}
+
+.container .card:hover .subtitulos {
+  opacity: 1;
+  top: 200px;
+  height: 250px;
+}
+
+.expanded {
+  top: 10px;
+  right: 102px;
+  bottom: 102px;
+  left: 10px;
+  line-height: 400px;
+  z-index: 9999;
+}
+
+.noticias {
+  height: 500px;
+  width: 300px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 20px;
+  border: 0px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.349);
+  transition: right 0.2s linear, bottom 0.2s linear, top 0.2s linear, left 0.2s linear, line-height 0.2s linear, z-index 0.2s linear;
+}
+
+.noticias:hover {
+  transition: box-shadow 0.5s;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.349);
+}
+
+.noticias > img {
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+}
+
+.noticias > p {
+  font-family: 'Inter', sans-serif;
+  top: 50px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.noticias .expanded {
+  top: 10px;
+  bottom: 102px;
+  right: 102px;
+  line-height: 400px;
+  left: 10px;
+  z-index: 9999;
+}
+
+.card-expandido {
+  display: none;
+  position: absolute;
+  top: 125px;
+  left: 170px;
+  width: 82%;
+  height: 1500px;
+  background: rgb(255, 255, 255);
+  color: rgb(32, 32, 32);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  border-radius: 25px;
+  opacity: 0; /* Começa com opacidade 0 */
+  transition: opacity 1s; /* Adiciona a transição para a propriedade de opacidade */
+}
+
+.card-expandido.active {
+  display: flex;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.card-expandido .imgExp{
+  position: absolute;
+  width: 600px;
+  height: 440px;
+  background: #333;
+  top: 50px;
+  left: 475px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.card-expandido .imgExp > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-expandido .tituloEXP{
+  position: absolute;
+  text-align: center;
+  font-size: 40pt;
+  top: 500px;
+}
+
+.card-expandido .subEXP{
+  position: absolute;
+  text-align: center;
+  font-size: 24pt;
+  top: 650px;
+  font-weight: 800;
+  left: 75px;
+  right: 75px;
+}
+
+.card-expandido .conteudoEXP{
+  position: absolute;
+  text-align: center;
+  left: 75px;
+  right: 75px;
+  top: 800px;
+  font-size: 16pt;
+  font-weight: 500;
+}
+
+.card-expandido .botaosair{
+  position: absolute;
+  font-size: larger;
+  right: 25px;
+  top: 25px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="divisoria-laranja">
+        <h1>Noticias</h1>
+    </div>
+  </div>
+  <div class="voltar">
+  <a  href="index.html"> <- Voltar</a>  
+</div>
+    <div class="container" id="container"></div>
+    <div class="card-expandido" id="card-expandido">
+        <div class="card-header">
+          <h2>Título do card</h2>
+        </div>
+        <div class="card-body">
+          <p>Conteúdo do card</p>
+        </div>
+      </div>
+
+
+    <script src="js-dinamicos/Noticias.js"></script>
+
+</body>
+</html>
