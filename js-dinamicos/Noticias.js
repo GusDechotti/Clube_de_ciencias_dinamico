@@ -42,22 +42,31 @@ async function ListarNoticias() {
                 
 
                 cardExpandido.innerHTML = `
+                    <br>
                     <div class="imgExp">
-                    <img src="${cardInfo.imagem}" alt="">
+                        <img src="${cardInfo.imagem}" alt="">
                     </div> 
                     <div class="tituloEXP">
-                    <h2>${cardInfo.titulo}</h2>
+                        <h2>${cardInfo.titulo}</h2>
                      </div>
                      <div class="subEXP">
-                          <p>${cardInfo.subtitulo}</p>
+                        <p>${cardInfo.subtitulo}</p>
                      </div>  
+                     <br>
                      <div class="conteudoEXP">
-                     <a>${cardInfo.conteudo}</a>
+                        <a>${cardInfo.conteudo}</a>
                      </div>
+                     <div class="botaosair">
                      <button class="botaosair" onClick="window.location.reload();">
                      <a> X </a>
                      </button>
-                `
+                     </div>
+                     <br>
+                        <button class="botaosairfinal" onClick="window.location.reload();">
+                        <a> FECHAR </a>
+                        </button>
+                     <br>
+                `;
                
                 cardExpandido.classList.add("active");
 
