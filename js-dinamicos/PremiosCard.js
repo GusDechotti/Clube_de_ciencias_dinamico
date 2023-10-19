@@ -24,14 +24,23 @@ async function ListarTarefas() {
     
     infos.forEach(cardInfo => {
         console.log(cardInfo.name)
+
+        var divpremios = document.createElement("div");
+        divpremios.classList.add("premios")
+        
+        var imagem = document.createElement("img");
+        imagem.setAttribute("src", cardInfo.imagem);
+
+        var h2 = document.createElement("h2");
+        h2.innerText=cardInfo.name;
+
+        var p =document.createAttribute("p");
+        p.innerText=cardInfo.description;
+
+        divpremios.appendChild(imagem, h2, p);
+
         console.log("teste");
-        cards.innerHTML += `
-            <div class="premios" >
-            <img src="${cardInfo.imagem}" alt="">
-            <h2>${cardInfo.name}</h2>
-            <p>${cardInfo.description}</p>
-            </div>
-        `
+        cards.appendChild(divpremios);
     });
 }
 

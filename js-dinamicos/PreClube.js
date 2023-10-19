@@ -31,6 +31,51 @@ async function adicionaClube(){
     const horarioClube = apiHorarioConvertida.result[0]
     const diasSemanaClube = apiHorarioConvertida.result[0].horarios.diaSemana
 
+    const divCaixaFundo = document.createElement("div");
+    divCaixaFundo.classList.add("caixa_fundo");
+
+    const divPreClubeTitle = document.createElement("div");
+    divPreClubeTitle.classList.add("identificador");
+
+    const tituloPreClube = document.createElement("p");
+    tituloPreClube.innerText = "Pré-Clube";
+
+    divPreClubeTitle.appendChild(tituloPreClube);
+    divCaixaFundo.appendChild(divPreClubeTitle)
+
+    const divCaixaMaior = document.createElement("div");
+    divCaixaMaior.classList.add("caixa_maior_baixo");
+
+    const imgClube = document.createElement("img");
+    imgClube.setAttribute("src", imagemClube);
+
+    const divBoxTextVantagens = document.createElement("div");
+    divBoxTextVantagens.classList.add("caixa_texto_vantagens");
+
+    const h3TextoVantagem = document.createElement("h3");
+    const pDescricaoClube = document.createElement("p");
+    pDescricaoClube.classList.add("desc-cl");
+
+    h3TextoVantagem.innerText = "Descrição";
+    pDescricaoClube.innerText = descricaoClube;
+
+    divBoxTextVantagens.appendChild(h3TextoVantagem, pDescricaoClube);
+
+    const divTabelaHorarios = document.createElement("div");
+    divTabelaHorarios.classList.add("caixa_texto_vantagens");
+
+    const h3HorariosTitulo = document.createElement("h3");
+
+    divTabelaHorarios.appendChild(h3HorariosTitulo);
+
+    const divTabelaConteudo = document.createElement("div");
+    divTabelaConteudo.classList.add("tabela");
+
+    const tabelaHorarios = document.createElement("table");
+    tabelaHorarios.classList.add("tabela-horarios");
+
+    const tbodyHorarios = document.createElement()
+    
     divTabela.innerHTML += `
         <div class="caixa_fundo"> 
             <div class="identificador">
@@ -49,19 +94,19 @@ async function adicionaClube(){
                     <h3>Horários</h3>
                     <div class="tabela">
                         <table class="tabela-horarios">
-                        <tbody id="tabela-corpo">
-                            <tr class="horarios-idade">
-                                <td colspan="2" class="headertablepre">${horarioClube.horarios.idade}</td>
-                            </tr>
-                            <tr>
-                                <td class="turno">TURNO: MANHÃ</td>
-                                <td class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
-                            </tr>
-                            <tr>
-                                <td class="turno">TURNO: TARDE</td>
-                                <td class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
-                            </tr>
-                        </tbody>
+                            <tbody id="tabela-corpo">
+                                <tr class="horarios-idade">
+                                    <td colspan="2" class="headertablepre">${horarioClube.horarios.idade}</td>
+                                </tr>
+                                <tr>
+                                    <td class="turno">TURNO: MANHÃ</td>
+                                    <td class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
+                                </tr>
+                                <tr>
+                                    <td class="turno">TURNO: TARDE</td>
+                                    <td class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
