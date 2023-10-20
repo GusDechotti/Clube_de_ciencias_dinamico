@@ -31,89 +31,60 @@ async function adicionaClube(){
     const horarioClube = apiHorarioConvertida.result[0]
     const diasSemanaClube = apiHorarioConvertida.result[0].horarios.diaSemana
 
-    const divCaixaFundo = document.createElement("div");
-    divCaixaFundo.classList.add("caixa_fundo");
+    const imgPreClube = document.querySelector("#imgPreClube");
+    imgPreClube.setAttribute("src", imagemClube);
 
-    const divPreClubeTitle = document.createElement("div");
-    divPreClubeTitle.classList.add("identificador");
+    const paragrafoDescricaoClube = document.querySelector("p#descricaoClube");
+    paragrafoDescricaoClube.innerText = descricaoClube;
 
-    const tituloPreClube = document.createElement("p");
-    tituloPreClube.innerText = "Pré-Clube";
+    const horarioIdades = document.querySelector("td.headertablepre");
+    horarioIdades.innerText = horarioClube.horarios.idade
 
-    divPreClubeTitle.appendChild(tituloPreClube);
-    divCaixaFundo.appendChild(divPreClubeTitle)
+    const tituloManha = document.querySelector("td#manha");
+    tituloManha.innerText = horarioClube.horarios.turnoManha.min + "Às" + horarioClube.horarios.turnoManha.max;
 
-    const divCaixaMaior = document.createElement("div");
-    divCaixaMaior.classList.add("caixa_maior_baixo");
+    const tituloTarde = document.querySelector("td#tarde");
+    tituloTarde.innerText = horarioClube.horarioClube.turnaTarde.min + "Às" + horarioClube.horarioClube.turnaTarde.max 
 
-    const imgClube = document.createElement("img");
-    imgClube.setAttribute("src", imagemClube);
+    // divTabela.innerHTML += `
+    //     <div class="caixa_fundo"> 
+    //         <div class="identificador">
+    //             <p>Pré-Clube</p>
+    //         </div>
+    //         <div class="caixa_maior_baixo">
+    //             <img src="${imagemClube}" alt="">
 
-    const divBoxTextVantagens = document.createElement("div");
-    divBoxTextVantagens.classList.add("caixa_texto_vantagens");
+    //             <div class="caixa_texto_vantagens">
+    //                 <h3>Descrição</h3>
+    //                 <p class="desc-cl">
+    //                     ${descricaoClube}
+    //                 </p>
+    //             </div>
 
-    const h3TextoVantagem = document.createElement("h3");
-    const pDescricaoClube = document.createElement("p");
-    pDescricaoClube.classList.add("desc-cl");
-
-    h3TextoVantagem.innerText = "Descrição";
-    pDescricaoClube.innerText = descricaoClube;
-
-    divBoxTextVantagens.appendChild(h3TextoVantagem, pDescricaoClube);
-
-    const divTabelaHorarios = document.createElement("div");
-    divTabelaHorarios.classList.add("caixa_texto_vantagens");
-
-    const h3HorariosTitulo = document.createElement("h3");
-
-    divTabelaHorarios.appendChild(h3HorariosTitulo);
-
-    const divTabelaConteudo = document.createElement("div");
-    divTabelaConteudo.classList.add("tabela");
-
-    const tabelaHorarios = document.createElement("table");
-    tabelaHorarios.classList.add("tabela-horarios");
-
-    const tbodyHorarios = document.createElement()
-    
-    divTabela.innerHTML += `
-        <div class="caixa_fundo"> 
-            <div class="identificador">
-                <p>Pré-Clube</p>
-            </div>
-            <div class="caixa_maior_baixo">
-                <img src="${imagemClube}" alt="">
-
-                <div class="caixa_texto_vantagens">
-                    <h3>Descrição</h3>
-                    <p class="desc-cl">
-                        ${descricaoClube}
-                    </p>
-                </div>
-                <div class="caixa_texto_vantagens">
-                    <h3>Horários</h3>
-                    <div class="tabela">
-                        <table class="tabela-horarios">
-                            <tbody id="tabela-corpo">
-                                <tr class="horarios-idade">
-                                    <td colspan="2" class="headertablepre">${horarioClube.horarios.idade}</td>
-                                </tr>
-                                <tr>
-                                    <td class="turno">TURNO: MANHÃ</td>
-                                    <td class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
-                                </tr>
-                                <tr>
-                                    <td class="turno">TURNO: TARDE</td>
-                                    <td class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    //             <div class="caixa_texto_vantagens">
+    //                 <h3>Horários</h3>
+    //                 <div class="tabela">
+    //                     <table class="tabela-horarios">
+    //                         <tbody id="tabela-corpo">
+    //                             <tr class="horarios-idade">
+    //                                 <td colspan="2" class="headertablepre">${horarioClube.horarios.idade}</td>
+    //                             </tr>
+    //                             <tr>
+    //                                 <td class="turno">TURNO: MANHÃ</td>
+    //                                 <td class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
+    //                             </tr>
+    //                             <tr>
+    //                                 <td class="turno">TURNO: TARDE</td>
+    //                                 <td class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
+    //                             </tr>
+    //                         </tbody>
+    //                     </table>
+    //                 </div>
+    //             </div>
         
-            </div>
-        </div>
-    `
+    //         </div>
+    //     </div>
+    // `
 
     const editDiasDaSemana = document.getElementById('tabela-corpo');
 
