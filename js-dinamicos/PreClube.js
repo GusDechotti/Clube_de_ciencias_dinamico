@@ -41,10 +41,12 @@ async function adicionaClube(){
     horarioIdades.innerText = horarioClube.horarios.idade
 
     const tituloManha = document.querySelector("td#manha");
-    tituloManha.innerText = horarioClube.horarios.turnoManha.min + "Às" + horarioClube.horarios.turnoManha.max;
+    tituloManha.innerText = horarioClube.horarios.turnoManha.min + " ás " + horarioClube.horarios.turnoManha.max;
+
+    console.log(horarioClube.horarios)
 
     const tituloTarde = document.querySelector("td#tarde");
-    tituloTarde.innerText = horarioClube.horarioClube.turnaTarde.min + "Às" + horarioClube.horarioClube.turnaTarde.max 
+    tituloTarde.innerText = horarioClube.horarios.turnoTarde.min + " ás " + horarioClube.horarios.turnoTarde.max; 
 
     // divTabela.innerHTML += `
     //     <div class="caixa_fundo"> 
@@ -89,12 +91,15 @@ async function adicionaClube(){
     const editDiasDaSemana = document.getElementById('tabela-corpo');
 
     diasSemanaClube.forEach(diaSemana => {
-        editDiasDaSemana.innerHTML += `
-            <tr id="dias-da-semana">
-                <td class="dia-semana">${diaSemana.dias}</td>
-                <td class="conteudo-dia-semana">${diaSemana.turmas}</td>
-            </tr>
-        `
+        var linhaDiasDaSemana = document.createElement("tr");
+        var diaDaSemana = document.createElement("td");
+        diaDaSemana.classList.add("dias-da-semana");
+
+        var conteudoDiaDaSemana = document.createElement("td");
+        conteudoDiaDaSemana.classList.add("conteudo-dia-semana");
+
+        linhaDiasDaSemana.appendChild(diaDaSemana, conteudoDiaDaSemana);
+
     })
 
 }
