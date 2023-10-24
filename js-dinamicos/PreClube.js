@@ -48,45 +48,6 @@ async function adicionaClube(){
     const tituloTarde = document.querySelector("td#tarde");
     tituloTarde.innerText = horarioClube.horarios.turnoTarde.min + " ás " + horarioClube.horarios.turnoTarde.max; 
 
-    // divTabela.innerHTML += `
-    //     <div class="caixa_fundo"> 
-    //         <div class="identificador">
-    //             <p>Pré-Clube</p>
-    //         </div>
-    //         <div class="caixa_maior_baixo">
-    //             <img src="${imagemClube}" alt="">
-
-    //             <div class="caixa_texto_vantagens">
-    //                 <h3>Descrição</h3>
-    //                 <p class="desc-cl">
-    //                     ${descricaoClube}
-    //                 </p>
-    //             </div>
-
-    //             <div class="caixa_texto_vantagens">
-    //                 <h3>Horários</h3>
-    //                 <div class="tabela">
-    //                     <table class="tabela-horarios">
-    //                         <tbody id="tabela-corpo">
-    //                             <tr class="horarios-idade">
-    //                                 <td colspan="2" class="headertablepre">${horarioClube.horarios.idade}</td>
-    //                             </tr>
-    //                             <tr>
-    //                                 <td class="turno">TURNO: MANHÃ</td>
-    //                                 <td class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
-    //                             </tr>
-    //                             <tr>
-    //                                 <td class="turno">TURNO: TARDE</td>
-    //                                 <td class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
-    //                             </tr>
-    //                         </tbody>
-    //                     </table>
-    //                 </div>
-    //             </div>
-        
-    //         </div>
-    //     </div>
-    // `
 
     const editDiasDaSemana = document.getElementById('tabela-corpo');
 

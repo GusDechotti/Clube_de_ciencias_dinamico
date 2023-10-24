@@ -150,6 +150,42 @@
       <div class="clubes" id="clubes">
         <div class="caixa_fundo"> 
           <div class="identificador">
+              <p>Clube</p>
+          </div>
+          <div class="caixa_maior_baixo">
+              <img id="imgClube" alt="">
+
+              <div class="caixa_texto_vantagens">
+                  <h3>Descrição</h3>
+                  <p id="description" class="desc-cl">
+                      ${descricaoClube}
+                  </p>
+              </div>
+              <div class="caixa_texto_vantagens">
+                  <h3>Horários</h3>
+                  <div class="tabela">
+                      <table class="tabela-horarios">
+                      <tbody id="tabela-corpo-clube">
+                          <tr class="horarios-idade">
+                              <td colspan="2" class="idade-tabela">${horarioClube.horarios.idade}</td>
+                          </tr>
+                          <tr>
+                              <td class="turno">TURNO: MANHÃ</td>
+                              <td id="conteudo-manha" class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
+                          </tr>
+                          <tr>
+                              <td class="turno">TURNO: TARDE</td>
+                              <td id="conteudo-tarde" class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
+                          </tr>
+                      </tbody>
+                      </table>
+                  </div>
+              </div>
+      
+          </div>
+      </div>
+        <div class="caixa_fundo"> 
+          <div class="identificador">
               <p>Pré-Clube</p>
           </div>
           <div class="caixa_maior_baixo">
@@ -182,9 +218,7 @@
                       </table>
                   </div>
               </div>
-      
           </div>
-      </div>
       </div>
     </div>
   </section>
