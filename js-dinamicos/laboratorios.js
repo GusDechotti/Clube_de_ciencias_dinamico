@@ -20,49 +20,74 @@ async function ListarTarefasLaboratorios() {
 
     var contador = 1;
 
-    laboratoriosInfo.forEach(laboratoriosInfo =>{
+
+    console.log(laboratoriosInfo);
+    laboratoriosInfo.forEach(laboratorio =>{
+      console.log(laboratorio)
+
+
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const txt = document.createElement("div");
+      txt.classList.add("txt");
+
+      const pTitulo = document.createElement("p");
+      pTitulo.classList.add("lab");
+      pTitulo.innerText = laboratorio.laboratorio;
+
+      const pDescricao = document.createElement("p");
+      pDescricao.classList.add("desc-lab");
+      pDescricao.innerText = laboratorio.descricao
+
+      
+
 
         console.log(laboratoriosInfo.name)
         if(contador % 2 != 0){
-          cardLaboratorio.innerHTML += `
+          cardLaboratorio.innerHTML += 
+
+
+          
+          `
         <div class="card">
-        <div class="txt">
-          <p class="lab">${cardLaboratorio.laboratorio}</p>
-          <p class="desc-lab">${cardLaboratorio.descricao}</p>
-        </div>
-        <div class="card-img">
-          <div>
-            <picture>
-              <source media="(max-width: 388px)" srcset="${cardLaboratorio.foto}">
-              <source media="(max-width: 630px)" srcset="${cardLaboratorio.foto}">
-              <img src="${cardLaboratorio.foto}" alt="">
-            </picture>
+          <div class="txt">
+            <p class="lab">${laboratorio.laboratorio}</p>
+            <p class="desc-lab">${laboratorio.descricao}</p>
           </div>
-          <div class="card-img-none">
-              <img src="${cardLaboratorio.fotoPequena1}" alt="">
-              <img src="${cardLaboratorio.fotoPequena2}" alt="">
+          <div class="card-img">
+            <div>
+              <picture>
+                <source media="(max-width: 388px)" srcset="${laboratorio.foto}">
+                <source media="(max-width: 630px)" srcset="${laboratorio.foto}">
+                <img src="${laboratorio.foto}" alt="">
+              </picture>
+            </div>
+            <div class="card-img-none">
+                <img src="${laboratorio.fotoPequena1}" alt="">
+                <img src="${laboratorio.fotoPequena2}" alt="">
+            </div>
           </div>
-        </div>
-        `
-        }else{
-          cardLaboratorio.innerHTML += `
-        <div class="card-reverse">
-        <div class="txt">
-          <p class="lab">${cardLaboratorio.laboratorio}</p>
-          <p class="desc-lab">${cardLaboratorio.descricao}</p>
-        </div>
-        <div class="card-img-reverse">
-          <div>
-            <picture>
-              <source media="(max-width: 388px)" srcset="${cardLaboratorio.foto}">
-              <source media="(max-width: 630px)" srcset="${cardLaboratorio.foto}">
-              <img src="${cardLaboratorio.foto}" alt="">
-            </picture>
+          `
+          }else{
+            cardLaboratorio.innerHTML += `
+          <div class="card-reverse">
+          <div class="txt">
+            <p class="lab">${laboratorio.laboratorio}</p>
+            <p class="desc-lab">${laboratorio.descricao}</p>
           </div>
-          <div class="card-img-none">
-              <img src="${cardLaboratorio.fotoPequena1}" alt="">
-              <img src="${cardLaboratorio.fotoPequena2}" alt="">
-          </div>
+          <div class="card-img-reverse">
+            <div>
+              <picture>
+                <source media="(max-width: 388px)" srcset="${laboratorio.foto}">
+                <source media="(max-width: 630px)" srcset="${laboratorio.foto}">
+                <img src="${laboratorio.foto}" alt="">
+              </picture>
+            </div>
+            <div class="card-img-none">
+                <img src="${laboratorio.fotoPequena1}" alt="">
+                <img src="${laboratorio.fotoPequena2}" alt="">
+            </div>
         </div>
         `
         }
