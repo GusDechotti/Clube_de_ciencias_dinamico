@@ -54,13 +54,16 @@ async function adicionaClube(){
 
         var linhaDiasDaSemana = document.createElement("tr");
         var diaDaSemana = document.createElement("td");
-        diaDaSemana.classList.add("dias-da-semana");
+        diaDaSemana.classList.add("dia-semana");
+        diaDaSemana.innerText = diaSemana.dias
 
         var conteudoDiaDaSemana = document.createElement("td");
         conteudoDiaDaSemana.classList.add("conteudo-dia-semana");
+        conteudoDiaDaSemana.innerText = diaSemana.turmas
+        console.log(conteudoDiaDaSemana)
 
 
-        linhaDiasDaSemana.appendChild(diaDaSemana, conteudoDiaDaSemana);
+        linhaDiasDaSemana.append(diaDaSemana, conteudoDiaDaSemana);
 
         editDiasDaSemana.append(linhaDiasDaSemana);
 
