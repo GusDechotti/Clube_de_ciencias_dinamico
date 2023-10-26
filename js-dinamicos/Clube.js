@@ -31,55 +31,97 @@ async function adicionaClube(){
     const horarioClube = apiHorarioConvertida.result[0]
     const diasSemanaClube = apiHorarioConvertida.result[0].horarios.diaSemana
 
-    divTabela.innerHTML += `
-        <div class="caixa_fundo"> 
-            <div class="identificador">
-                <p>Clube</p>
-            </div>
-            <div class="caixa_maior_baixo">
-                <img src="${imagemClube}" alt="">
+    const imgClube = document.querySelector("#imgClube");
+    imgClube.setAttribute("src", imagemClube);
 
-                <div class="caixa_texto_vantagens">
-                    <h3>Descrição</h3>
-                    <p class="desc-cl">
-                        ${descricaoClube}
-                    </p>
-                </div>
-                <div class="caixa_texto_vantagens">
-                    <h3>Horários</h3>
-                    <div class="tabela">
-                        <table class="tabela-horarios">
-                        <tbody id="tabela-corpo-clube">
-                            <tr class="horarios-idade">
-                                <td colspan="2" class="idade-tabela">${horarioClube.horarios.idade}</td>
-                            </tr>
-                            <tr>
-                                <td class="turno">TURNO: MANHÃ</td>
-                                <td class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
-                            </tr>
-                            <tr>
-                                <td class="turno">TURNO: TARDE</td>
-                                <td class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-        
-            </div>
-        </div>
-    `
+    const paragrafoDescricaoClube = document.querySelector("p#descricaoClube");
+    paragrafoDescricaoClube.innerText = descricaoClube;
+
+    const horarioIdades = document.querySelector("td.idade-tabela");
+    horarioIdades.innerText = horarioClube.horarios.idade
+
+    const tituloManha = document.querySelector("td#clube-manha");
+    tituloManha.innerText = horarioClube.horarios.turnoManha.min + " ás " + horarioClube.horarios.turnoManha.max;
+
+    console.log(horarioClube.horarios)
+
+    const tituloTarde = document.querySelector("td#clube-tarde");
+    tituloTarde.innerText = horarioClube.horarios.turnoTarde.min + " ás " + horarioClube.horarios.turnoTarde.max; 
 
     const editDiasDaSemana = document.getElementById('tabela-corpo-clube');
 
+
     diasSemanaClube.forEach(diaSemana => {
-        editDiasDaSemana.innerHTML += `
-            <tr id="dias-da-semana">
-                <td class="dia-semana">${diaSemana.dias}</td>
-                <td class="conteudo-dia-semana">${diaSemana.turmas}</td>
-            </tr>
-        `
+
+        console.log(diaSemana);
+
+        var linhaDiasDaSemana = document.createElement("tr");
+        var diaDaSemana = document.createElement("td");
+        diaDaSemana.classList.add("dias-da-semana");
+        diaDaSemana.innerText = diaSemana.dias
+
+        var conteudoDiaDaSemana = document.createElement("td");
+        conteudoDiaDaSemana.classList.add("conteudo-dia-semana");
+        conteudoDiaDaSemana.innerText = diaSemana.turmas
+        console.log(diaSemana.turmas)
+
+
+        linhaDiasDaSemana.appendChild(diaDaSemana, conteudoDiaDaSemana);
+
+        editDiasDaSemana.append(linhaDiasDaSemana);
+
     })
+
+
+    // divTabela.innerHTML += `
+    //     <div class="caixa_fundo"> 
+    //         <div class="identificador">
+    //             <p>Clube</p>
+    //         </div>
+    //         <div class="caixa_maior_baixo">
+    //             <img src="${imagemClube}" alt="">
+
+    //             <div class="caixa_texto_vantagens">
+    //                 <h3>Descrição</h3>
+    //                 <p class="desc-cl">
+    //                     ${descricaoClube}
+    //                 </p>
+    //             </div>
+    //             <div class="caixa_texto_vantagens">
+    //                 <h3>Horários</h3>
+    //                 <div class="tabela">
+    //                     <table class="tabela-horarios">
+    //                     <tbody id="tabela-corpo-clube">
+    //                         <tr class="horarios-idade">
+    //                             <td colspan="2" class="idade-tabela">${horarioClube.horarios.idade}</td>
+    //                         </tr>
+    //                         <tr>
+    //                             <td class="turno">TURNO: MANHÃ</td>
+    //                             <td class="conteudo-turno">${horarioClube.horarios.turnoManha.min} ÀS ${horarioClube.horarios.turnoManha.max}</td>
+    //                         </tr>
+    //                         <tr>
+    //                             <td class="turno">TURNO: TARDE</td>
+    //                             <td class="conteudo-turno">${horarioClube.horarios.turnoTarde.min} ÀS ${horarioClube.horarios.turnoTarde.max}</td>
+    //                         </tr>
+    //                     </tbody>
+    //                     </table>
+    //                 </div>
+    //             </div>
+        
+    //         </div>
+    //     </div>
+    // `
+
+    // const editDiasDaSemana = document.getElementById('tabela-corpo-clube');
+
+    // diasSemanaClube.forEach(diaSemana => {
+    //     editDiasDaSemana.innerHTML += `
+    //         <tr id="dias-da-semana">
+    //             <td class="dia-semana">${diaSemana.dias}</td>
+    //             <td class="conteudo-dia-semana">${diaSemana.turmas}</td>
+    //         </tr>
+    //     `
+    // })
 
 }
 
