@@ -48,6 +48,24 @@ async function adicionaClube(){
     const tituloTarde = document.querySelector("td#clube-tarde");
     tituloTarde.innerText = horarioClube.horarios.turnoTarde.min + " ás " + horarioClube.horarios.turnoTarde.max; 
 
+    const constSrcImgClube = document.querySelector("#imgClube");
+    constSrcImgClube.setAttribute("src", imagemClube);
+
+    const pDescricaoClube = document.querySelector("#description");
+    pDescricaoClube.innerText = descricaoClube;
+
+    const idadeTabela = document.querySelector(".idade-tabela");
+
+    idadeTabela.innerText = horarioClube.horarios.idade
+
+    const horarioTurnoManha = document.querySelector("#conteudo-manha");
+
+    horarioTurnoManha.innerText = horarioClube.horarios.turnoManha.min + " às " + horarioClube.horarios.turnoManha.max
+
+    const horarioTurnoTarde = document.querySelector("#conteudo-tarde");
+
+    horarioTurnoTarde.innerText = horarioClube.horarios.turnoTarde.min + " às " + horarioClube.horarios.turnoTarde.max
+
     const editDiasDaSemana = document.getElementById('tabela-corpo-clube');
 
 
