@@ -52,15 +52,19 @@ async function adicionaClube(){
     const editDiasDaSemana = document.getElementById('tabela-corpo');
 
     diasSemanaClube.forEach(diaSemana => {
+        console.log(diaSemana)
         var linhaDiasDaSemana = document.createElement("tr");
         var diaDaSemana = document.createElement("td");
-        diaDaSemana.classList.add("dias-da-semana");
+        diaDaSemana.classList.add("dia-semana");
+        diaDaSemana.innerText = diaSemana.dias
 
         var conteudoDiaDaSemana = document.createElement("td");
         conteudoDiaDaSemana.classList.add("conteudo-dia-semana");
+        conteudoDiaDaSemana.innerText = diaSemana.turmas
 
-        linhaDiasDaSemana.appendChild(diaDaSemana, conteudoDiaDaSemana);
+        linhaDiasDaSemana.append(diaDaSemana, conteudoDiaDaSemana);
 
+        editDiasDaSemana.append(linhaDiasDaSemana)
     })
 
 }
