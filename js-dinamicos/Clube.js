@@ -63,7 +63,9 @@ async function adicionaClube(){
         conteudoDiaDaSemana.classList.add("conteudo-dia-semana");
         conteudoDiaDaSemana.innerText = diaSemana.turmas;
 
-        editDiasDaSemana.append(diaDaSemana, conteudoDiaDaSemana)
+        linhaDiasDaSemana.append(diaDaSemana, conteudoDiaDaSemana)
+
+        editDiasDaSemana.append(linhaDiasDaSemana)
 
     })
 
