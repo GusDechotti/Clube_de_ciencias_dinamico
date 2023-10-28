@@ -15,23 +15,36 @@ const data = await result.json();
 
     console.log(data);
 
-    var duvidaInfo = data.result
-    console.log(duvidaInfo)
+    var duvidasInfos = data.result
+    console.log(duvidasInfos)
 
-    duvidaInfo.forEach(duvidaInfo =>{
-      console.log(duvidaInfo.name)
-      cardDuvida.innerHTML += `
-        <p>
-          <button class="campo-freq" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            ${cardDuvida.pergunta}
-          </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            ${cardDuvida.respostas}
-          </div>
-        </div>
-      `
+    duvidasInfos.forEach(duvidaInfo =>{
+      console.log(duvidaInfo)
+
+      const paragrafo = document.createElement("p");
+
+      const botaoPergunta = document.createElement("button");
+      botaoPergunta.classList.add("campo-freq");
+      botaoPergunta.setAttribute("data-bs-toggle", "collapse");
+      botaoPergunta.setAttribute("data-bs-target", "#collapseExample");
+      botaoPergunta.setAttribute("aria-expanded", "false");
+      botaoPergunta.setAttribute("aria-controls", "collapseExample");
+
+      botaoPergunta.innerText = duvidaInfo.pergunta;
+
+      const divResposta = document.createElement("div");
+      divResposta.classList.add("collapse");
+      divResposta.setAttribute("id", "collapseExample");
+
+      const divCardResposta = document.createElement("div");
+      divCardResposta.classList.add("card");
+      divCardResposta.innerText = duvidaInfo.respostas;
+
+      paragrafo.append(botaoPergunta)
+
+      divResposta.append(divCardResposta);
+
+      cardDuvida.append(paragrafo, divResposta);
 
     });
 
