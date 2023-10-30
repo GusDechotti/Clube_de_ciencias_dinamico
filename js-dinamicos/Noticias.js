@@ -14,53 +14,87 @@ async function ListarNoticias() {
         const infos = data.result;
 
         infos.forEach(cardInfo => {
+
+
             const card = document.createElement("div");
             card.classList.add("card");
 
-            card.innerHTML = `
-                <div class="imgBX">
-                    <img src="${cardInfo.imagem}" alt="">
-                </div>
-                <div class="content">
-                    <h2>${cardInfo.titulo}</h2>
-                </div>
-                <div class="subtitulos">
-                    <p>${cardInfo.subtitulo}</p>
-                </div>
-                <button class="verMais">
-                    <a> Ver Mais </a>
-                </button>
-                <div class="data">
-                    <p>${cardInfo.data}</p>
-                </div>
-            `;
+            const divImagem = document.createElement("div");
+            divImagem.classList.add("imgBX");
+
+            const imagemNoticia = document.createElement("img");
+            imagemNoticia.setAttribute("src", cardInfo.imagem);
+
+            divImagem.append(imagemNoticia);
+
+            const divTitulo = document.createElement("div");
+            divTitulo.classList.add("content");
+
+            const h2Titulo = document.createElement("h2");
+            h2Titulo.innerText = cardInfo.titulo;
+
+            divTitulo.append(h2Titulo);
+
+            const divSubtitulo = document.createElement("div");
+            divSubtitulo.classList.add("subtitulos");
+
+            const pSubtitulo = document.createElement("p");
+            pSubtitulo.innerText = cardInfo.subtitulo
+
+            divSubtitulo.append(pSubtitulo);
+
+            const botaoVerMais = document.createElement("button");
+            botaoVerMais.classList.add("verMais");
+
+            const aVerMais = document.createElement("a");
+            aVerMais.innerText = "Ver Mais";
+
+            botaoVerMais.append(aVerMais);
+
+            const divData = document.createElement("div");
+            divData.classList.add("data");
+
+            const pData = document.createElement("p");
+            pData.innerText = cardInfo.data;
+
+            divData.append(pData);
+
+
+            card.append(divImagem, divTitulo, divSubtitulo, botaoVerMais, divData);
+
 
             const verMaisButton = card.querySelector('.verMais');
             const cardExpandido = document.getElementById("card-expandido");
 
             verMaisButton.addEventListener("click", () => {
-                
+            
 
                 cardExpandido.innerHTML = `
                     <br>
+                    
                     <div class="imgExp">
                         <img src="${cardInfo.imagem}" alt="">
                     </div> 
+
                     <div class="tituloEXP">
                         <h2>${cardInfo.titulo}</h2>
                      </div>
+
                      <div class="subEXP">
                         <p>${cardInfo.subtitulo}</p>
                      </div>  
                      <br>
+
                      <div class="conteudoEXP">
                         <a>${cardInfo.conteudo}</a>
                      </div>
+
                      <div class="botaosair">
                      <button class="botaosair" onClick="window.location.reload();">
                      <a> X </a>
                      </button>
                      </div>
+
                      <br>
                         <button class="botaosairfinal" onClick="window.location.reload();">
                         <a> FECHAR </a>
