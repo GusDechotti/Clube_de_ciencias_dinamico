@@ -1,118 +1,105 @@
 const APINOTICIA = " https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22noticia%22%5D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A";
 
 async function ListarNoticias() {
-    try {
-        const result = await fetch(APINOTICIA, {
-            method: "GET",
-        });
+    const result = await fetch(APINOTICIA, {
+        method: "GET",
+    });
 
-        const data = await result.json();
-        const cards = document.getElementById("container");
+    const data = await result.json();
+    const cards = document.getElementById("container");
 
-        cards.innerHTML = "";
+    cards.innerHTML = "";
 
-        const infos = data.result;
+    const infos = data.result;
 
-        infos.forEach(cardInfo => {
+    infos.forEach(cardInfo => {
 
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-            const card = document.createElement("div");
-            card.classList.add("card");
+        const divImagem = document.createElement("div");
+        divImagem.classList.add("imgBX");
 
-            const divImagem = document.createElement("div");
-            divImagem.classList.add("imgBX");
+        const imagemNoticia = document.createElement("img");
+        imagemNoticia.setAttribute("src", cardInfo.imagem);
 
-            const imagemNoticia = document.createElement("img");
-            imagemNoticia.setAttribute("src", cardInfo.imagem);
+        divImagem.append(imagemNoticia);
 
-            divImagem.append(imagemNoticia);
+        const divTitulo = document.createElement("div");
+        divTitulo.classList.add("content");
 
-            const divTitulo = document.createElement("div");
-            divTitulo.classList.add("content");
+        const h2Titulo = document.createElement("h2");
+        h2Titulo.innerText = cardInfo.titulo;
 
-            const h2Titulo = document.createElement("h2");
-            h2Titulo.innerText = cardInfo.titulo;
+        divTitulo.append(h2Titulo);
 
-            divTitulo.append(h2Titulo);
+        const divSubtitulo = document.createElement("div");
+        divSubtitulo.classList.add("subtitulos");
 
-            const divSubtitulo = document.createElement("div");
-            divSubtitulo.classList.add("subtitulos");
+        const pSubtitulo = document.createElement("p");
+        pSubtitulo.innerText = cardInfo.subtitulo
 
-            const pSubtitulo = document.createElement("p");
-            pSubtitulo.innerText = cardInfo.subtitulo
+        divSubtitulo.append(pSubtitulo);
 
-            divSubtitulo.append(pSubtitulo);
+        const botaoVerMais = document.createElement("button");
+        botaoVerMais.classList.add("verMais");
 
-            const botaoVerMais = document.createElement("button");
-            botaoVerMais.classList.add("verMais");
+        botaoVerMais.innerText = "Ver Mais";
 
-            const aVerMais = document.createElement("a");
-            aVerMais.innerText = "Ver Mais";
+        const divData = document.createElement("div");
+        divData.classList.add("data");
 
-            botaoVerMais.append(aVerMais);
+        const pData = document.createElement("p");
+        pData.innerText = cardInfo.data;
 
-            const divData = document.createElement("div");
-            divData.classList.add("data");
+        divData.append(pData);
 
-            const pData = document.createElement("p");
-            pData.innerText = cardInfo.data;
+        const divConteudo = document.createElement("div");
+        divConteudo.classList.add("conteudo-card");
 
-            divData.append(pData);
+        divConteudo.append(divTitulo, divSubtitulo, botaoVerMais, divData);
 
+        card.append(divImagem, divConteudo);
 
-            card.append(divImagem, divTitulo, divSubtitulo, botaoVerMais, divData);
+        // const cardExpandido = document.createElement("div");
 
+        // const divImgCardExpandido = document.createElement("div");
+        // divImgCardExpandido.classList.add("img-expandida");
 
-            const verMaisButton = card.querySelector('.verMais');
-            const cardExpandido = document.getElementById("card-expandido");
+        // const imgCardExpandido = document.createElement("img");
+        // imgCardExpandido.setAttribute("src", cardInfo.imagem);
 
-            verMaisButton.addEventListener("click", () => {
-            
+        // divImgCardExpandido.append(imgCardExpandido);
 
-                cardExpandido.innerHTML = `
-                    <br>
-                    
-                    <div class="imgExp">
-                        <img src="${cardInfo.imagem}" alt="">
-                    </div> 
+        // const divTituloExpandido = document.createElement("div");
+        // divTituloExpandido.classList.add("titulo-expandido")
 
-                    <div class="tituloEXP">
-                        <h2>${cardInfo.titulo}</h2>
-                     </div>
+        // const tituloExpandido = document.createElement("h2");
+        // tituloExpandido.innerText = cardInfo.titulo;
 
-                     <div class="subEXP">
-                        <p>${cardInfo.subtitulo}</p>
-                     </div>  
-                     <br>
+        // divTituloExpandido.appendChild(tituloExpandido);
 
-                     <div class="conteudoEXP">
-                        <a>${cardInfo.conteudo}</a>
-                     </div>
+        // const divSubtituloExpandido = document.createElement("div");
+        // divSubtituloExpandido.classList.add("subtitulo-expandido")
 
-                     <div class="botaosair">
-                     <button class="botaosair" onClick="window.location.reload();">
-                     <a> X </a>
-                     </button>
-                     </div>
+        // const subtituloExpandido = document.createElement("p");
+        // subtituloExpandido.innerText = cardInfo.subtitulo;
 
-                     <br>
-                        <button class="botaosairfinal" onClick="window.location.reload();">
-                        <a> FECHAR </a>
-                        </button>
-                     <br>
-                `;
-               
-                cardExpandido.classList.add("active");
+        // divSubtituloExpandido.append(subtituloExpandido);
 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-            });
+        // const divConteudoExpandido = document.createElement("div");
+        // divConteudoExpandido.classList.add("conteudo-expandido");
 
-            cards.appendChild(card);
-        });
-    } catch (error) {
-        console.error(error);
-    }
+        // const conteudoExpandido = document.createElement("p");
+        // conteudoExpandido.innerText = cardInfo.conteudo;
+
+        // divConteudoExpandido.append(conteudoExpandido);
+
+        cards.appendChild(card)
+    })
 }
 
 ListarNoticias();
+
+
+
