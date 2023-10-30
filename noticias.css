@@ -88,6 +88,20 @@ main{
   gap: 15px;
 }
 
+.content{
+  position: relative;
+  font-size: 1rem;
+}
+
+.subtitulos{
+
+  flex-wrap: nowrap;
+}
+
+.verMais , .data{
+  position: relative;
+}
+
 .conteudo-card button{
   width: 70px;
   height: 30px;

@@ -95,7 +95,7 @@ async function ListarNoticias() {
 
         // divConteudoExpandido.append(conteudoExpandido);
 
-        cards.appendChild(card)
+        cards.append(card)
     })
 }
 
