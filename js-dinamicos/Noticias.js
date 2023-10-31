@@ -1,105 +1,49 @@
 const APINOTICIA = " https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22noticia%22%5D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A";
 
-async function ListarNoticias() {
-    const result = await fetch(APINOTICIA, {
-        method: "GET",
-    });
+const URL = "https://rpstdm9a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27noticias%27+%5D%5B0..5%5D%7B%0A++titulo%2C%0A++subtitulo%2C%0A++conteudo%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++data%0A%7D%7Corder%28date+desc%29"
 
-    const data = await result.json();
-    const cards = document.getElementById("container");
 
-    cards.innerHTML = "";
-
-    const infos = data.result;
-
-    infos.forEach(cardInfo => {
-
-        const card = document.createElement("div");
-        card.classList.add("card");
-
-        const divImagem = document.createElement("div");
-        divImagem.classList.add("imgBX");
-
-        const imagemNoticia = document.createElement("img");
-        imagemNoticia.setAttribute("src", cardInfo.imagem);
-
-        divImagem.append(imagemNoticia);
-
-        const divTitulo = document.createElement("div");
-        divTitulo.classList.add("content");
-
-        const h2Titulo = document.createElement("h2");
-        h2Titulo.innerText = cardInfo.titulo;
-
-        divTitulo.append(h2Titulo);
-
-        const divSubtitulo = document.createElement("div");
-        divSubtitulo.classList.add("subtitulos");
-
-        const pSubtitulo = document.createElement("p");
-        pSubtitulo.innerText = cardInfo.subtitulo
-
-        divSubtitulo.append(pSubtitulo);
-
-        const botaoVerMais = document.createElement("button");
-        botaoVerMais.classList.add("verMais");
-
-        botaoVerMais.innerText = "Ver Mais";
-
-        const divData = document.createElement("div");
-        divData.classList.add("data");
-
-        const pData = document.createElement("p");
-        pData.innerText = cardInfo.data;
-
-        divData.append(pData);
-
-        const divConteudo = document.createElement("div");
-        divConteudo.classList.add("conteudo-card");
-
-        divConteudo.append(divTitulo, divSubtitulo, botaoVerMais, divData);
-
-        card.append(divImagem, divConteudo);
-
-        // const cardExpandido = document.createElement("div");
-
-        // const divImgCardExpandido = document.createElement("div");
-        // divImgCardExpandido.classList.add("img-expandida");
-
-        // const imgCardExpandido = document.createElement("img");
-        // imgCardExpandido.setAttribute("src", cardInfo.imagem);
-
-        // divImgCardExpandido.append(imgCardExpandido);
-
-        // const divTituloExpandido = document.createElement("div");
-        // divTituloExpandido.classList.add("titulo-expandido")
-
-        // const tituloExpandido = document.createElement("h2");
-        // tituloExpandido.innerText = cardInfo.titulo;
-
-        // divTituloExpandido.appendChild(tituloExpandido);
-
-        // const divSubtituloExpandido = document.createElement("div");
-        // divSubtituloExpandido.classList.add("subtitulo-expandido")
-
-        // const subtituloExpandido = document.createElement("p");
-        // subtituloExpandido.innerText = cardInfo.subtitulo;
-
-        // divSubtituloExpandido.append(subtituloExpandido);
-
-        // const divConteudoExpandido = document.createElement("div");
-        // divConteudoExpandido.classList.add("conteudo-expandido");
-
-        // const conteudoExpandido = document.createElement("p");
-        // conteudoExpandido.innerText = cardInfo.conteudo;
-
-        // divConteudoExpandido.append(conteudoExpandido);
-
-        cards.append(card)
+async function noticias(){
+    var dados = await fetch(APINOTICIA, {
+        method: "GET"
     })
+
+    var dadosJS = await dados.json()
+
+    console.log(dadosJS)
+    dadosJS.result.forEach(element => {
+        var div_txt = document.createElement("div");
+        div_txt.className = "txt";
+        var div_noticia = document.createElement("div");
+        div_noticia.className = "noticia"
+        
+        var titulo = document.createElement("p");
+        titulo.className = "titulo";
+        var subtitulo = document.createElement("p");
+        subtitulo.className = "subtitulo";
+        var descricao = document.createElement("p");
+        descricao.className = "descricao";
+        var data = document.createElement("p");
+        data.className = "data";
+        var img = document.createElement("img");
+        img.className = "img-noticia"
+        
+        titulo.innerText = element.titulo;
+        subtitulo.innerText = element.subtitulo;
+        descricao.innerText = element.conteudo;
+        data.innerText = element.data;
+        img.setAttribute("src", `${element.imagem}?h=700&w=700`);
+
+
+        div_txt.appendChild(titulo)
+        div_txt.appendChild(subtitulo)
+        div_txt.appendChild(descricao)
+        div_txt.appendChild(data)
+
+        div_noticia.appendChild(div_txt);
+        div_noticia.appendChild(img);
+
+        document.body.appendChild(div_noticia)
+    });
 }
-
-ListarNoticias();
-
-
-
+noticias();

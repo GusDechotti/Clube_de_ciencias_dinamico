@@ -420,7 +420,7 @@ p{
 
   /*Tabela de horarios clube e pre clube*/
 .tabela{
-    width: 400px;
+    width: 100%;
 }
 
 tr{
@@ -522,7 +522,6 @@ th{
 }
 
 .caixa_maior_baixo{
-    /* border: solid 1px white; */
     display: flex;
     flex-direction: column;
     align-items: center;
