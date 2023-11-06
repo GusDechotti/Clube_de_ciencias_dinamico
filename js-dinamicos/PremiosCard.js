@@ -10,6 +10,7 @@ async function ListarTarefas() {
     // Convertendo o meu resultado em um JSON
     const data = await result.json();
 
+
     const cards = document.querySelector("#cards-premios");
     
     var infos = data.result
@@ -19,7 +20,7 @@ async function ListarTarefas() {
 
     // Percorre cada objeto da minha api de Premios
     infos.forEach(cardInfo => {
-        console.log(cardInfo.name)
+        console.log(cardInfo)
 
         var divpremios = document.createElement("div");
         divpremios.classList.add("premios")

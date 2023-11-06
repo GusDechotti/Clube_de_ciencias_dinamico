@@ -242,6 +242,7 @@ p{
     background-color: #103973;
     align-items: center;
     margin: 10px;
+    color: white;
 }
 .card-reverse{
     display: flex;
