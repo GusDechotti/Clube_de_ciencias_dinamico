@@ -1,7 +1,4 @@
-const APINOTICIA = " https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22noticia%22%5D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A";
-
-const URL = "https://rpstdm9a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27noticias%27+%5D%5B0..5%5D%7B%0A++titulo%2C%0A++subtitulo%2C%0A++conteudo%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++data%0A%7D%7Corder%28date+desc%29"
-
+const APINOTICIA = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22noticia%22%5D%7B%0A++%22T%C3%ADtulo%22%3A+titulo%2C%0A++%22Subt%C3%ADtulo%22%3A+subtitulo%2C%0A++%22Descri%C3%A7%C3%A3o%22%3A+conteudo%2C%0A++%22ImagemDaNot%C3%ADcia%22%3A+imagem.asset-%3Eurl%2C%0A++%22Data%22%3A+data%0A%7D%0A%0A"
 
 async function noticias(){
     var dados = await fetch(APINOTICIA, {
@@ -10,7 +7,7 @@ async function noticias(){
 
     var dadosJS = await dados.json()
 
-    console.log(dadosJS)
+    console.log(dadosJS.result)
     dadosJS.result.forEach(element => {
         var div_txt = document.createElement("div");
         div_txt.className = "txt";
@@ -28,11 +25,11 @@ async function noticias(){
         var img = document.createElement("img");
         img.className = "img-noticia"
         
-        titulo.innerText = element.titulo;
-        subtitulo.innerText = element.subtitulo;
-        descricao.innerText = element.conteudo;
-        data.innerText = element.data;
-        img.setAttribute("src", `${element.imagem}?h=700&w=700`);
+        titulo.innerText = element.Título;
+        subtitulo.innerText = element.Subtítulo;
+        descricao.innerText = element.Descrição;
+        data.innerText = element.Data;
+        img.setAttribute("src", `${element.ImagemDaNotícia}?h=700&w=700`);
 
 
         div_txt.appendChild(titulo)
