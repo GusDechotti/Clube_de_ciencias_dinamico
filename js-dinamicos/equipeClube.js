@@ -1,6 +1,6 @@
 function atualizarEquipe() {
 
-    fetch('https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27equipe2%27%5D', {
+    fetch('https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22equipe2%22%5D%7B%0A++%22Nome%22%3A+name%2C%0A++%22Cargo%22%3A+cargo%2C%0A++%22Imagem%22%3A+foto.asset-%3Eurl%2C%0A%7D%0A%0A', {
       method: "GET"
     })
     .then(result => result.json())
@@ -17,16 +17,16 @@ function atualizarEquipe() {
         profDiv.className = 'profs';
 
         const imgElement = document.createElement('img');
-        imgElement.src = `${member.foto}`; 
+        imgElement.src = member.Imagem; 
 
         const nomeDiv = document.createElement('div');
         nomeDiv.id = 'nome';
 
         const h3Element = document.createElement('h3');
-        h3Element.textContent = member.name;
+        h3Element.textContent = member.Nome;
 
         const pElement = document.createElement('p');
-        pElement.textContent = member.cargo; 
+        pElement.textContent = member.Cargo; 
 
         nomeDiv.appendChild(h3Element);
         nomeDiv.appendChild(pElement);

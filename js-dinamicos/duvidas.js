@@ -18,6 +18,7 @@ const data = await result.json();
     var duvidasInfos = data.result
     console.log(duvidasInfos)
 
+    var contadora = 0;
     duvidasInfos.forEach(duvidaInfo =>{
       console.log(duvidaInfo)
 
@@ -26,7 +27,7 @@ const data = await result.json();
       const botaoPergunta = document.createElement("button");
       botaoPergunta.classList.add("campo-freq");
       botaoPergunta.setAttribute("data-bs-toggle", "collapse");
-      botaoPergunta.setAttribute("data-bs-target", "#collapseExample");
+      botaoPergunta.setAttribute("data-bs-target", `#collapseExample${contadora}`);
       botaoPergunta.setAttribute("aria-expanded", "false");
       botaoPergunta.setAttribute("aria-controls", "collapseExample");
 
@@ -34,7 +35,7 @@ const data = await result.json();
 
       const divResposta = document.createElement("div");
       divResposta.classList.add("collapse");
-      divResposta.setAttribute("id", "collapseExample");
+      divResposta.setAttribute("id", `collapseExample${contadora}`);
 
       const divCardResposta = document.createElement("div");
       divCardResposta.classList.add("card");
@@ -45,7 +46,7 @@ const data = await result.json();
       divResposta.append(divCardResposta);
 
       cardDuvida.append(paragrafo, divResposta);
-
+      contadora++;
     });
 
 }
