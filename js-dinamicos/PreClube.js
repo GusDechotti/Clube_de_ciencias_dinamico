@@ -1,57 +1,36 @@
-
-const API_descricaoHorariosPreClube = "https://8j5kty0a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D";
-
-const API_imagemPreClube = 'https://8j5kty0a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D%7B%0A++%22imagem%22%3A+imagem.asset-%3E+url%0A%7D'
-
-const API_horarioPreClube = 'https://8j5kty0a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D%7B%0A++horarios-%3E%0A%7D'
+const API_descricaoHorarios = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A ";
 
 const divTabelaClubes = document.getElementById('clubes');
 
 async function adicionaClube(){
-    const resultDescricao = await fetch(API_descricaoHorariosPreClube, {
-        method: "GET",
-    });
-
-    const resultImagem = await fetch(API_imagemPreClube, {
-        method: "GET",
-    });
-
-    const resultHorario = await fetch( API_horarioPreClube, {
+    const resultDescricao = await fetch(API_descricaoHorarios, {
         method: "GET",
     });
 
     const apiDescricaoConvertida = await resultDescricao.json();
 
-    const apiImagemConvertida = await resultImagem.json();
+    const api = apiDescricaoConvertida.result[0]
 
-    const apiHorarioConvertida = await resultHorario.json();
-
-    const descricaoClube =  apiDescricaoConvertida.result[0].description
-    const imagemClube = apiImagemConvertida.result[0].imagem;
-    const horarioClube = apiHorarioConvertida.result[0]
-    const diasSemanaClube = apiHorarioConvertida.result[0].horarios.diaSemana
+    console.log(api)
 
     const imgPreClube = document.querySelector("#imgPreClube");
-    imgPreClube.setAttribute("src", imagemClube);
+    imgPreClube.setAttribute("src", api.imagem);
 
     const paragrafoDescricaoClube = document.querySelector("p#descricaoClube");
-    paragrafoDescricaoClube.innerText = descricaoClube;
+    paragrafoDescricaoClube.innerText = api.descricao;
 
     const horarioIdades = document.querySelector("td.headertablepre");
-    horarioIdades.innerText = horarioClube.horarios.idade
+    horarioIdades.innerText = api.horario.idade
 
     const tituloManha = document.querySelector("td#manha");
-    tituloManha.innerText = horarioClube.horarios.turnoManha.min + " ás " + horarioClube.horarios.turnoManha.max;
-
-    console.log(horarioClube.horarios)
+    tituloManha.innerText = api.horario.turnoManha.min + " ás " + api.horario.turnoManha.max;
 
     const tituloTarde = document.querySelector("td#tarde");
-    tituloTarde.innerText = horarioClube.horarios.turnoTarde.min + " ás " + horarioClube.horarios.turnoTarde.max; 
-
+    tituloTarde.innerText = api.horario.turnoTarde.min + " ás " + api.horario.turnoTarde.max; 
 
     const editDiasDaSemana = document.getElementById('tabela-corpo');
 
-    diasSemanaClube.forEach(diaSemana => {
+    api.horario.diaSemana.forEach(diaSemana => {
         console.log(diaSemana)
         var linhaDiasDaSemana = document.createElement("tr");
         var diaDaSemana = document.createElement("td");
