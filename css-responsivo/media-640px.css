@@ -17,6 +17,10 @@
   .vant-txt{
     margin: 10px
   }
+
+  .laboratorios img{
+    width: 70%;
+  }
     footer{
         height: 1500px;
         background-image: url(../img/SITERESPONSIVO.png);

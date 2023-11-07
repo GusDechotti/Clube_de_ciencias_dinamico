@@ -36,14 +36,6 @@ async function ListarTarefasLaboratorios() {
 
     const picture = document.createElement("picture");
 
-    const source1 = document.createElement("source");
-    source1.setAttribute("media", "(max-width: 388px)");
-    source1.setAttribute("srcset", laboratorio.foto);
-
-    const source2 = document.createElement("source");
-    source2.setAttribute("media", "(max-width: 630px)");
-    source2.setAttribute("srcset", laboratorio.foto);
-
     const img = document.createElement("img");
     img.setAttribute("src", laboratorio.foto);
     img.setAttribute("alt", "");
