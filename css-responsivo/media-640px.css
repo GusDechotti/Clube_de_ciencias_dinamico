@@ -17,6 +17,12 @@
   .vant-txt{
     margin: 10px
   }
+
+  .card img{
+    width: 90%;
+
+  }
+  
     footer{
         height: 1500px;
         background-image: url(../img/SITERESPONSIVO.png);
