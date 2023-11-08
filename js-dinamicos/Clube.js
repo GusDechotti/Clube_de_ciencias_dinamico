@@ -1,69 +1,78 @@
 
-const API_descricaoHorarios = "https://8j5kty0a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22clube%22%5D";
 
-const API_imagemClube = 'https://8j5kty0a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22clube%22%5D%7B%0A++%22imagem%22%3A+imagem.asset-%3E+url%0A%7D'
+// Endpoint pego no query do Sanity
 
-const API_horarioClube = 'https://8j5kty0a.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22clube%22%5D%7B%0A++horarios-%3E%0A%7D'
+const endpointClube = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22clube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A "
 
-const divTabela = document.getElementById('clubes');
+// Pegando o elemento da tabela de informações do Clube
+
+const divTabela = document.getElementById("clubes")
 
 async function adicionaClube(){
-    const resultDescricao = await fetch(API_descricaoHorarios, {
+    const resultadoApiClube = await fetch(endpointClube, {
         method: "GET",
-    });
+    })
 
-    const resultImagem = await fetch(API_imagemClube, {
-        method: "GET",
-    });
+    // Convertendo o fetch da api em um objeto JSON
 
-    const resultHorario = await fetch(API_horarioClube, {
-        method: "GET",
-    });
+    const apiClubeJson = await resultadoApiClube.json();
 
-    const apiDescricaoConvertida = await resultDescricao.json();
+    const apiClube = apiClubeJson.result[0]
 
-    const apiImagemConvertida = await resultImagem.json();
+    // Adicionando o src da imagem
 
-    const apiHorarioConvertida = await resultHorario.json();
+    const constSrcImgClube = document.querySelector("#imgClube")
+    constSrcImgClube.setAttribute("src", apiClube.imagem)
 
-    const descricaoClube =  apiDescricaoConvertida.result[0].description
-    const imagemClube = apiImagemConvertida.result[0].imagem;
-    const horarioClube = apiHorarioConvertida.result[0]
-    const diasSemanaClube = apiHorarioConvertida.result[0].horarios.diaSemana
+    // Adicionando a descrição
 
-    const constSrcImgClube = document.querySelector("#imgClube");
-    constSrcImgClube.setAttribute("src", imagemClube);
+    const pDescricaoClube = document.querySelector("#description")
+    pDescricaoClube.innerText = apiClube.descricao
 
-    const pDescricaoClube = document.querySelector("#description");
-    pDescricaoClube.innerText = descricaoClube;
+    // Adicionando a idade na tabela
 
-    const idadeTabela = document.querySelector(".idade-tabela");
+    const idadeTabela = document.querySelector(".idade-tabela")
+    idadeTabela.innerText = apiClube.horario.idade
 
-    idadeTabela.innerText = horarioClube.horarios.idade
+    // Adicionando os horarios do periodo matutino
 
-    const horarioTurnoManha = document.querySelector("#conteudo-manha");
+    const horarioTurnoManha = document.querySelector("#conteudo-manha")
+    horarioTurnoManha.innerText = apiClube.horario.turnoManha.min
+        + " às " + apiClube.horario.turnoManha.max
 
-    horarioTurnoManha.innerText = horarioClube.horarios.turnoManha.min + " às " + horarioClube.horarios.turnoManha.max
+    // Adicionando os horarios do periodo vespertino
 
-    const horarioTurnoTarde = document.querySelector("#conteudo-tarde");
+    const horarioTurnoTarde = document.querySelector("#conteudo-tarde")
+    horarioTurnoTarde.innerText = apiClube.horario.turnoTarde.min
+        + " às " + apiClube.horario.turnoTarde.max
 
-    horarioTurnoTarde.innerText = horarioClube.horarios.turnoTarde.min + " às " + horarioClube.horarios.turnoTarde.max
+    // Pegando tabela de dias da semana para incrementar percorrendo o array de Dias da Semana inseridos
 
-    const editDiasDaSemana = document.getElementById('tabela-corpo-clube');
+    const editDiasDaSemana = document.getElementById("tabela-corpo-clube")
 
-    diasSemanaClube.forEach(diaSemana => {
+    // percorre array de dias da semana inseridos
 
-        var linhaDiasDaSemana = document.createElement("tr");
+    apiClube.horario.diaSemana.forEach(diaSemana => {
+
+        // Criar linha na tabela
+
+        var linhaDiasDaSemana = document.createElement("tr")
+
+        // Criando o o td de conteudo da linha, adicionando a classe e o conteudo.
         
         var diaDaSemana = document.createElement("td");
-        diaDaSemana.classList.add("dia-semana");
+        diaDaSemana.classList.add("dia-semana")
         diaDaSemana.innerText = diaSemana.dias
 
-        var conteudoDiaDaSemana = document.createElement("td");
-        conteudoDiaDaSemana.classList.add("conteudo-dia-semana");
-        conteudoDiaDaSemana.innerText = diaSemana.turmas;
+        var conteudoDiaDaSemana = document.createElement("td")
+        conteudoDiaDaSemana.classList.add("conteudo-dia-semana")
+        conteudoDiaDaSemana.innerText = diaSemana.turmas
+
+        // Adicionando o conteudo na linha 
 
         linhaDiasDaSemana.append(diaDaSemana, conteudoDiaDaSemana)
+
+        // Adicionando a linha na tabela
 
         editDiasDaSemana.append(linhaDiasDaSemana)
 
@@ -71,7 +80,7 @@ async function adicionaClube(){
 
 }
 
-adicionaClube();
+adicionaClube()
 
 
 
