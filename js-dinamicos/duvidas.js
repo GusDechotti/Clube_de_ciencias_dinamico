@@ -12,18 +12,18 @@ async function ListarTarefasDuvidas(){
     const apiDuvidasJson = await resultadoApiDuvidas.json()
 
     const apiDuvidas = apiDuvidasJson.result[0];
+
+    // Pegando a div perguntas frequentes
     
     const cardDuvida = document.getElementById("perguntas-frequentes")
-    console.log(cardDuvida)
 
-    console.log(data)
-
-    var duvidasInfos = data.result
-    console.log(duvidasInfos)
+    // Criando variavel contadora para inserir um id auto_increment
 
     var contadora = 0
-    duvidasInfos.forEach(duvidaInfo =>{
-      console.log(duvidaInfo)
+
+    apiDuvidas.forEach(duvidaInfo =>{
+
+      // Cria um paragrafo e o botão, e passa os atributos para funcionar o modal do botão
 
       const paragrafo = document.createElement("p")
 
@@ -35,6 +35,8 @@ async function ListarTarefasDuvidas(){
       botaoPergunta.setAttribute("aria-controls", "collapseExample")
 
       botaoPergunta.innerText = duvidaInfo.pergunta
+
+      // Cria div resposta 
 
       const divResposta = document.createElement("div")
       divResposta.classList.add("collapse")
