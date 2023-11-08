@@ -6,21 +6,14 @@ async function ListarTarefasLaboratorios() {
   });
 
   const data = await result.json();
-  console.log(data);
-  console.log(data.result);
-  console.log(data.result.result);
-
 
   const cardLaboratorio = document.getElementById("cards-laboratorios");
-  console.log(cardLaboratorio);
 
   const laboratoriosInfo = data.result;
-  console.log(laboratoriosInfo);
 
   var contador = 1;
 
   laboratoriosInfo.forEach(laboratorio => {
-    console.log(laboratorio);
 
     const card = document.createElement("div");
     card.classList.add("card");
@@ -58,6 +51,7 @@ async function ListarTarefasLaboratorios() {
     cardImgNone.appendChild(imgPequena2);
     divImagens.appendChild(cardImgNone);
     
+    //if e else para alternar os lados dos cards dos laboratorios
 
     if (contador % 2 !== 0) {
       card.classList.add("card");
