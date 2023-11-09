@@ -675,6 +675,7 @@ footer{
     font-family: 'Inter', sans-serif;
     color: #fff;
     margin-bottom: 200px;
+    
 }
 
 .perguntas-frequentes p{
@@ -726,6 +727,7 @@ form{
     font-size: 18px;
     border-radius: 5px;
 }
+
 
 #backtotop-btn {
     visibility: hidden;
