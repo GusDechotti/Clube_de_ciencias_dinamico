@@ -13,11 +13,11 @@ async function consomeApimetodo(){
 
   // Convertendo o fetch da api em um objeto JSON
 
-  const APImetodoConvertida = await APImetodo.json();
+  const APImetodoConvertida = await APImetodo.json()
 
   // Inserindo a descrição de forma dinamica
 
-  document.getElementById('metodo').innerText = APImetodoConvertida.result[0].descricao;
+  document.getElementById("metodo").innerText = APImetodoConvertida.result[0].descricao
 } 
 
-consomeApimetodo();
+consomeApimetodo()

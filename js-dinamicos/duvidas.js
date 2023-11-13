@@ -11,7 +11,7 @@ async function ListarTarefasDuvidas(){
 
     const apiDuvidasJson = await resultadoApiDuvidas.json()
 
-    const apiDuvidas = apiDuvidasJson.result[0];
+    const apiDuvidas = apiDuvidasJson.result[0]
 
     // Pegando a div perguntas frequentes
     

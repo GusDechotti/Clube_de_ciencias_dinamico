@@ -12,13 +12,13 @@ async function ListarEquipe() {
 
     const apiDuvidasJson = resultadoApiDuvidas.json()
        
-    const apiDuvidas = apiDuvidasJson.result[0]; 
+    const apiDuvidas = apiDuvidasJson.result[0]
 
-    const equipeDiv = document.getElementById('sep')
+    const equipeDiv = document.getElementById("sep")
 
     // Zera a div de equipe para cadastrar todos membros sempre que adicionado
 
-    equipeDiv.innerHTML = ''
+    equipeDiv.innerHTML = ""
 
     // Adiciona todos os membros da lista de integrantes da equipe
 
@@ -26,33 +26,33 @@ async function ListarEquipe() {
 
         // Cria a div do integrante com sua classe
 
-        const profDiv = document.createElement('div')
-        profDiv.className = 'profs'
+        const profDiv = document.createElement("div")
+        profDiv.className = "profs"
 
         // Cria a imagem do integrante
 
-        const imgElement = document.createElement('img')
-        imgElement.src = member.Imagem;
+        const imgElement = document.createElement("img")
+        imgElement.src = member.Imagem
 
-        // Cria as  
+        // Cria as 
 
-        const nomeDiv = document.createElement('div');
-        nomeDiv.id = 'nome';
+        const nomeDiv = document.createElement("div")
+        nomeDiv.id = "nome"
 
-        const h3Element = document.createElement('h3');
-        h3Element.textContent = member.Nome;
+        const h3Element = document.createElement("h3")
+        h3Element.textContent = member.Nome
 
-        const pElement = document.createElement('p');
-        pElement.textContent = member.Cargo; 
+        const pElement = document.createElement("p")
+        pElement.textContent = member.Cargo;
 
-        nomeDiv.appendChild(h3Element);
-        nomeDiv.appendChild(pElement);
+        nomeDiv.appendChild(h3Element)
+        nomeDiv.appendChild(pElement)
 
-        profDiv.appendChild(imgElement);
-        profDiv.appendChild(nomeDiv);
+        profDiv.appendChild(imgElement)
+        profDiv.appendChild(nomeDiv)
 
-        equipeDiv.appendChild(profDiv);
-      });
+        equipeDiv.appendChild(profDiv)
+      })
   }
 
 atualizarEquipe();

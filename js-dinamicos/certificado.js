@@ -13,11 +13,11 @@ async function consomeApimetodo(){
 
   // Convertendo o fetch da api em um objeto JSON
 
-  const APIcertificadoConvertida = await APIcertificado.json();
+  const APIcertificadoConvertida = await APIcertificado.json()
 
    // Inserindo a descrição de forma dinamica
 
-  document.getElementById('certificado').innerText = APIcertificadoConvertida.result[0].descricao;
+  document.getElementById("certificado").innerText = APIcertificadoConvertida.result[0].descricao
 }
 
 consomeApimetodo();
