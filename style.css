@@ -243,6 +243,16 @@ p{
     align-items: center;
     margin: 10px;
 }
+<<<<<<< Updated upstream
+=======
+
+.card img{
+    border-radius: 20px;
+    box-shadow: #000000b4 1px 5px 5px;
+    margin-bottom: 10px;
+}
+
+>>>>>>> Stashed changes
 .card-reverse{
     display: flex;
     flex-direction: row-reverse;
