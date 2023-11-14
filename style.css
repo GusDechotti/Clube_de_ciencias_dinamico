@@ -236,7 +236,7 @@ p{
 .card{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 90%;
     height: auto;
     border-radius: 20px;
     background-color: #103973;
@@ -246,6 +246,7 @@ p{
 }
 
 .card img{
+    display: flex;
     border-radius: 20px;
     box-shadow: #000000b4 1px 5px 5px;
     margin-bottom: 10px;
@@ -254,7 +255,7 @@ p{
 .card-reverse{
     display: flex;
     flex-direction: row-reverse;
-    width: 80%;
+    width: 90%;
     height: auto;
     border-radius: 20px;
     background-color: #103973;
@@ -289,7 +290,7 @@ p{
 
 }
 .card-img-reverse{
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
