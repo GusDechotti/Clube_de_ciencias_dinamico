@@ -11,7 +11,7 @@ async function ListarTarefasDuvidas(){
 
     const apiDuvidasJson = await resultadoApiDuvidas.json()
 
-    const apiDuvidas = apiDuvidasJson.result[0]
+    const apiDuvidas = apiDuvidasJson.result
 
     // Pegando a div perguntas frequentes
     
@@ -21,7 +21,11 @@ async function ListarTarefasDuvidas(){
 
     var contadora = 0
 
+    console.log(apiDuvidas)
+
     apiDuvidas.forEach(duvidaInfo =>{
+
+      console.log(duvidaInfo)
 
       // Cria um paragrafo e o botão, e passa os atributos para funcionar o modal do botão
 
@@ -33,6 +37,8 @@ async function ListarTarefasDuvidas(){
       botaoPergunta.setAttribute("data-bs-target", `#collapseExample${contadora}`)
       botaoPergunta.setAttribute("aria-expanded", "false")
       botaoPergunta.setAttribute("aria-controls", "collapseExample")
+
+      // Insere a pergunta da lista de perguntas ao botão
 
       botaoPergunta.innerText = duvidaInfo.pergunta
 

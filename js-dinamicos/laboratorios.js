@@ -50,6 +50,12 @@ async function ListarTarefasLaboratorios() {
     cardImgNone.appendChild(imgPequena1)
     cardImgNone.appendChild(imgPequena2)
     divImagens.appendChild(cardImgNone)
+
+    const divImagensResponsivo = document.createElement("div")
+    divImagensResponsivo.className = "imagens-reponsivo"
+
+    divImagensResponsivo.appendChild(cardImgNone)
+    divImagensResponsivo.appendChild(divImagens)
     
     //if e else para alternar os lados dos cards dos laboratorios
 
@@ -58,8 +64,7 @@ async function ListarTarefasLaboratorios() {
       txt.appendChild(pTitulo)
       txt.appendChild(pDescricao)
       card.appendChild(txt)
-      card.appendChild(divImagens)
-      card.appendChild(cardImgNone)
+      card.appendChild(divImagensResponsivo)
       divImagens.className = "card-img"
 
     } else {
@@ -68,8 +73,7 @@ async function ListarTarefasLaboratorios() {
       txt.appendChild(pTitulo)
       txt.appendChild(pDescricao)
       card.appendChild(txt)
-      card.appendChild(divImagens)
-      card.appendChild(cardImgNone)
+      card.appendChild(divImagensResponsivo)
       divImagens.className = "card-img-reverse"
     }
 
