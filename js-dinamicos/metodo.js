@@ -6,7 +6,7 @@ const endpointMetodo = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/pr
 
 // Função assincrona consumindo a API 
 
-async function consomeApimetodo(){
+async function metodo(){
   const APImetodo = await fetch(endpointMetodo, {
     method : "GET"
   })
@@ -26,4 +26,4 @@ async function consomeApimetodo(){
   metodo.innerText = descricaoMetodo
 } 
 
-consomeApimetodo()
+metodo()

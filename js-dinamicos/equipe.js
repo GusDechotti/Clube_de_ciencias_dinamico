@@ -4,7 +4,7 @@
 
 const endpointEquipe = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27equipe%27%5D+%7C+order%28_createdAt+asc%29+%5B0...8%5D+%7B%0A++%27Nome%27%3A+name%2C%0A++%27Cargo%27%3A+cargo%2C%0A++%27Imagem%27%3A+foto.asset-%3Eurl%2C%0A%7D"
 
-async function ListarEquipe() {
+async function Equipe() {
 
     const resultadoApiDuvidas = await fetch(endpointEquipe, {
       method: "GET",
@@ -44,9 +44,13 @@ async function ListarEquipe() {
 
       const pElement = document.createElement("p")
 
+      // insere as informações nos elementos
+
       imgElement.src = member.Imagem
       h3Element.textContent = member.Nome
       pElement.textContent = member.Cargo;
+
+      // insere os elementos em suas respectivas divs
 
       nomeDiv.appendChild(h3Element)
       nomeDiv.appendChild(pElement)
@@ -56,4 +60,4 @@ async function ListarEquipe() {
     })
   }
 
-ListarEquipe();
+  Equipe();

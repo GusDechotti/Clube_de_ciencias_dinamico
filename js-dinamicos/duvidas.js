@@ -4,7 +4,7 @@
 
 const endpointDuvidas = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22duvidas%22%5D%0A%0A%0A"
 
-async function ListarTarefasDuvidas(){
+async function duvidas(){
   const resultadoApiDuvidas = await fetch(endpointDuvidas, {
     method: "GET",
   });
@@ -50,11 +50,14 @@ async function ListarTarefasDuvidas(){
 
       const divCardResposta = document.createElement("div")
       divCardResposta.classList.add("card")
+
+      // insere a resposta na div resposta
+
       divCardResposta.innerText = duvidaInfo.respostas
 
-      paragrafo.append(botaoPergunta)
+      paragrafo.appendChild(botaoPergunta)
 
-      divResposta.append(divCardResposta)
+      divResposta.appendChild(divCardResposta)
 
       cardDuvida.append(paragrafo, divResposta)
 
@@ -62,4 +65,4 @@ async function ListarTarefasDuvidas(){
     });
 
 }
-ListarTarefasDuvidas();
+duvidas();

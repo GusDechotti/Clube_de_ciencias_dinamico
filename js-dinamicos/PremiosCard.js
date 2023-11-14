@@ -23,26 +23,35 @@ async function ListarTarefas() {
     infos.forEach(cardInfo => {
         console.log(cardInfo)
 
+        // Cria div premios, que será o card do premio com sua respectiva classe
+
         var divpremios = document.createElement("div")
         divpremios.classList.add("premios")
+
+        // Cria o elemento da imagem
     
         var imagem = document.createElement("img")
-        imagem.setAttribute("src", cardInfo.Imagem)
-
+        
+        // Cria o elemento do titulo
+        
         var h3 = document.createElement("h3")
-        h3.innerText=cardInfo.Título;
 
-        console.log(cardInfo.Título)
+        // Cria o elemento do paragrafo
 
         var paragrafo = document.createElement("p")
+
+        // Insere o conteudo do respectivo premio do loop
+
+        imagem.setAttribute("src", cardInfo.Imagem)
+        h3.innerText=cardInfo.Título
         paragrafo.innerText=cardInfo.Descrição
-        console.log(cardInfo.Descrição)
+
+        // engloba tudo dentro do card do premio
 
         divpremios.append(imagem, h3, paragrafo)
 
-        console.log(divpremios)
+        // engloba o card do premio dentro da div de cards
 
-        console.log("teste")
         cards.appendChild(divpremios)
     });
 }

@@ -18,38 +18,49 @@ async function noticias(){
     // Percorrendo a lista de noticias para inseri-las no body
 
     dadosJS.result.forEach(element => {
-        var div_txt = document.createElement("div");
-        div_txt.className = "txt";
-        var div_noticia = document.createElement("div");
+
+        // criando os elementos de div da noticia, titulo, descricao, subtitulo, data e imagem
+
+        var div_txt = document.createElement("div")
+        div_txt.className = "txt"
+
+        var div_noticia = document.createElement("div")
         div_noticia.className = "noticia"
         
-        var titulo = document.createElement("p");
-        titulo.className = "titulo";
-        var subtitulo = document.createElement("p");
-        subtitulo.className = "subtitulo";
-        var descricao = document.createElement("p");
-        descricao.className = "descricao";
-        var data = document.createElement("p");
-        data.className = "data";
-        var img = document.createElement("img");
+        var titulo = document.createElement("p")
+        titulo.className = "titulo"
+
+        var subtitulo = document.createElement("p")
+        subtitulo.className = "subtitulo"
+
+        var descricao = document.createElement("p")
+        descricao.className = "descricao"
+
+        var data = document.createElement("p")
+        data.className = "data"
+
+        var img = document.createElement("img")
         img.className = "img-noticia"
+
+        // atribuindo o conteudo aos elementos
         
-        titulo.innerText = element.titulo;
-        subtitulo.innerText = element.subtitulo;
-        descricao.innerText = element.conteudo;
-        data.innerText = element.data;
-        img.setAttribute("src", `${element.imagem}?h=700&w=700`);
+        titulo.innerText = element.titulo
+        subtitulo.innerText = element.subtitulo
+        descricao.innerText = element.conteudo
+        data.innerText = element.data
+        img.setAttribute("src", `${element.imagem}?h=700&w=700`)
 
+        // encapsulando todas as informações dentro da div de texto
 
-        div_txt.appendChild(titulo)
-        div_txt.appendChild(subtitulo)
-        div_txt.appendChild(descricao)
-        div_txt.appendChild(data)
+        div_txt.append(titulo, subtitulo, descricao, data)
 
-        div_noticia.appendChild(div_txt);
-        div_noticia.appendChild(img);
+        // encapsulando a div de texto e a imagem para a div de noticia
+
+        div_noticia.append(div_txt, img)
+
+        // adicionado a div de noticia ao body
 
         document.body.appendChild(div_noticia)
-    });
+    })
 }
-noticias();
+noticias()
