@@ -6,18 +6,18 @@ const endpointCertificado = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/que
 
 // Função assincrona consumindo a API 
 
-async function consomeApimetodo(){
+async function certificado(){
   const APIcertificado = await fetch(endpointCertificado, {
     method : "GET"
   })
 
   // Convertendo o fetch da api em um objeto JSON
 
-  const APIcertificadoConvertida = await APIcertificado.json();
+  const APIcertificadoConvertida = await APIcertificado.json()
 
    // Inserindo a descrição de forma dinamica
 
-  document.getElementById('certificado').innerText = APIcertificadoConvertida.result[0].descricao;
+  document.querySelector("#certificado").innerText = APIcertificadoConvertida.result[0].descricao
 }
 
-consomeApimetodo();
+certificado();

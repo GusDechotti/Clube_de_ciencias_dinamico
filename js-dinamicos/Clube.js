@@ -8,7 +8,7 @@ const endpointClube = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/pro
 
 const divTabela = document.getElementById("clubes")
 
-async function adicionaClube(){
+async function clube(){
     const resultadoApiClube = await fetch(endpointClube, {
         method: "GET",
     })
@@ -80,7 +80,7 @@ async function adicionaClube(){
 
 }
 
-adicionaClube()
+clube()
 
 
 

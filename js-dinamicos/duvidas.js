@@ -4,26 +4,30 @@
 
 const endpointDuvidas = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22duvidas%22%5D%0A%0A%0A"
 
-async function ListarTarefasDuvidas(){
+async function duvidas(){
   const resultadoApiDuvidas = await fetch(endpointDuvidas, {
     method: "GET",
   });
 
     const apiDuvidasJson = await resultadoApiDuvidas.json()
 
-    const apiDuvidas = apiDuvidasJson.result[0];
+    const apiDuvidas = apiDuvidasJson.result
+
+    // Pegando a div perguntas frequentes
     
     const cardDuvida = document.getElementById("perguntas-frequentes")
-    console.log(cardDuvida)
 
-    console.log(data)
-
-    var duvidasInfos = data.result
-    console.log(duvidasInfos)
+    // Criando variavel contadora para inserir um id auto_increment
 
     var contadora = 0
-    duvidasInfos.forEach(duvidaInfo =>{
+
+    console.log(apiDuvidas)
+
+    apiDuvidas.forEach(duvidaInfo =>{
+
       console.log(duvidaInfo)
+
+      // Cria um paragrafo e o botão, e passa os atributos para funcionar o modal do botão
 
       const paragrafo = document.createElement("p")
 
@@ -34,7 +38,11 @@ async function ListarTarefasDuvidas(){
       botaoPergunta.setAttribute("aria-expanded", "false")
       botaoPergunta.setAttribute("aria-controls", "collapseExample")
 
+      // Insere a pergunta da lista de perguntas ao botão
+
       botaoPergunta.innerText = duvidaInfo.pergunta
+
+      // Cria div resposta 
 
       const divResposta = document.createElement("div")
       divResposta.classList.add("collapse")
@@ -42,11 +50,14 @@ async function ListarTarefasDuvidas(){
 
       const divCardResposta = document.createElement("div")
       divCardResposta.classList.add("card")
+
+      // insere a resposta na div resposta
+
       divCardResposta.innerText = duvidaInfo.respostas
 
-      paragrafo.append(botaoPergunta)
+      paragrafo.appendChild(botaoPergunta)
 
-      divResposta.append(divCardResposta)
+      divResposta.appendChild(divCardResposta)
 
       cardDuvida.append(paragrafo, divResposta)
 
@@ -54,4 +65,4 @@ async function ListarTarefasDuvidas(){
     });
 
 }
-ListarTarefasDuvidas();
+duvidas();

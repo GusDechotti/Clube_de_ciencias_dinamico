@@ -6,18 +6,24 @@ const endpointMetodo = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/pr
 
 // Função assincrona consumindo a API 
 
-async function consomeApimetodo(){
+async function metodo(){
   const APImetodo = await fetch(endpointMetodo, {
     method : "GET"
   })
 
   // Convertendo o fetch da api em um objeto JSON
 
-  const APImetodoConvertida = await APImetodo.json();
+  const APImetodoConvertida = await APImetodo.json()
+
+  // Convertendo para somete a descrição
+
+  const descricaoMetodo = APImetodoConvertida.result[0].descricao
 
   // Inserindo a descrição de forma dinamica
 
-  document.getElementById('metodo').innerText = APImetodoConvertida.result[0].descricao;
+  const metodo = document.querySelector("#metodo")
+
+  metodo.innerText = descricaoMetodo
 } 
 
-consomeApimetodo();
+metodo()

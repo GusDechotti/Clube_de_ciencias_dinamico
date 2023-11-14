@@ -1,5 +1,7 @@
 
+
 const API = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22premios%22%5D%7B%0A++%22T%C3%ADtulo%22%3A+name%2C%0A++%22Descri%C3%A7%C3%A3o%22%3A+description%2C%0A++%22Imagem%22%3A+imagem.asset-%3Eurl%2C%0A%7D%0A%0A"
+
 async function ListarTarefas() {
     // Realizando a requisição GET na API de tarefas
     const result = await fetch(API, {
@@ -7,44 +9,53 @@ async function ListarTarefas() {
     });
 
     // Convertendo o meu resultado em um JSON
-    const data = await result.json();
+    const data = await result.json()
 
 
-    const cards = document.querySelector("#cards-premios");
+    const cards = document.querySelector("#cards-premios")
     
     var infos = data.result
     
-    cards.innerText = "";
+    cards.innerText = ""
 
 
     // Percorre cada objeto da minha api de Premios
     infos.forEach(cardInfo => {
         console.log(cardInfo)
 
-        var divpremios = document.createElement("div");
+        // Cria div premios, que será o card do premio com sua respectiva classe
+
+        var divpremios = document.createElement("div")
         divpremios.classList.add("premios")
+
+        // Cria o elemento da imagem
+    
+        var imagem = document.createElement("img")
         
-        var imagem = document.createElement("img");
-        imagem.setAttribute("src", cardInfo.Imagem);
+        // Cria o elemento do titulo
+        
+        var h3 = document.createElement("h3")
 
-        var h3 = document.createElement("h3");
-        h3.innerText=cardInfo.Título;
+        // Cria o elemento do paragrafo
 
-        console.log(cardInfo.Título)
+        var paragrafo = document.createElement("p")
 
-        var paragrafo = document.createElement("p");
-        paragrafo.innerText=cardInfo.Descrição;
-        console.log(cardInfo.Descrição)
+        // Insere o conteudo do respectivo premio do loop
 
-        divpremios.append(imagem, h3, paragrafo);
+        imagem.setAttribute("src", cardInfo.Imagem)
+        h3.innerText=cardInfo.Título
+        paragrafo.innerText=cardInfo.Descrição
 
-        console.log(divpremios)
+        // engloba tudo dentro do card do premio
 
-        console.log("teste");
-        cards.appendChild(divpremios);
+        divpremios.append(imagem, h3, paragrafo)
+
+        // engloba o card do premio dentro da div de cards
+
+        cards.appendChild(divpremios)
     });
 }
 
-ListarTarefas();
+ListarTarefas()
 
 
