@@ -15,9 +15,15 @@ async function consomeApimetodo(){
 
   const APImetodoConvertida = await APImetodo.json()
 
+  // Convertendo para somete a descrição
+
+  const descricaoMetodo = APImetodoConvertida.result[0].descricao
+
   // Inserindo a descrição de forma dinamica
 
-  document.getElementById("metodo").innerText = APImetodoConvertida.result[0].descricao
+  const metodo = document.querySelector("#metodo")
+
+  metodo.innerText = descricaoMetodo
 } 
 
 consomeApimetodo()

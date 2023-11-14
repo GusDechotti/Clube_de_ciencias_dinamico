@@ -54,8 +54,12 @@ h1{
     background-color: white;
     border-radius: 20px;
     border: 0px;
-    
     box-shadow: 5px 5px 5px black;
+
+    /* Não vazar a div */
+
+    overflow: auto;
+    word-wrap: break-word;
 }
 .premios:hover{
     transition: box-shadow .5s;

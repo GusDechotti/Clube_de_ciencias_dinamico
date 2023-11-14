@@ -32,7 +32,7 @@ async function ListarEquipe() {
       // Cria a imagem do integrante
 
       const imgElement = document.createElement("img")
-      imgElement.src = member.Imagem
+      
 
       // Cria div das informações(nome/cargo)
 
@@ -40,17 +40,17 @@ async function ListarEquipe() {
       nomeDiv.id = "nome"
 
       const h3Element = document.createElement("h3")
-      h3Element.textContent = member.Nome
 
       const pElement = document.createElement("p")
+
+      imgElement.src = member.Imagem
+      h3Element.textContent = member.Nome
       pElement.textContent = member.Cargo;
 
       nomeDiv.appendChild(h3Element)
       nomeDiv.appendChild(pElement)
-
       profDiv.appendChild(imgElement)
       profDiv.appendChild(nomeDiv)
-
       equipeDiv.appendChild(profDiv)
     })
   }

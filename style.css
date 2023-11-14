@@ -283,6 +283,11 @@ p{
     font-family: 'Inter', sans-serif;
 }
 
+.imagens-reponsivo{
+    display: flex;
+    margin: 15px;
+}
+
 .desc-lab{
     font-size: 18px;
     font-family: 'Inter', sans-serif;

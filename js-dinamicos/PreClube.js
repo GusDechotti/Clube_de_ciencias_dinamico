@@ -1,15 +1,15 @@
-const API_descricaoHorarios = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A ";
+const endpointPreClube = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A ";
 
 const divTabelaClubes = document.getElementById('clubes');
 
 async function adicionaClube(){
-    const resultDescricao = await fetch(API_descricaoHorarios, {
+    const resultEndpointPreClube = await fetch(endpointPreClube, {
         method: "GET",
     });
 
-    const apiDescricaoConvertida = await resultDescricao.json();
+    const apiJsonPreClube = await resultEndpointPreClube.json();
 
-    const api = apiDescricaoConvertida.result[0]
+    const api = apiJsonPreClube.result[0]
 
     console.log(api)
 
