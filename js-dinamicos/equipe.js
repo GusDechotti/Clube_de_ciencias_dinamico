@@ -10,11 +10,13 @@ async function ListarEquipe() {
       method: "GET",
     });
 
-    const apiDuvidasJson = resultadoApiDuvidas.json()
+    
+    const apiDuvidasJson = await resultadoApiDuvidas.json()
+    console.log(apiDuvidasJson)
        
     const apiDuvidas = apiDuvidasJson.result[0]
 
-    const equipeDiv = document.getElementById("sep")
+    const equipeDiv = document.querySelector("#sep")
 
     // Zera a div de equipe para cadastrar todos membros sempre que adicionado
 
@@ -29,30 +31,31 @@ async function ListarEquipe() {
         const profDiv = document.createElement("div")
         profDiv.className = "profs"
 
-        // Cria a imagem do integrante
+        // Cria os elementos no html
 
         const imgElement = document.createElement("img")
-        imgElement.src = member.Imagem
-
-        // Cria as 
 
         const nomeDiv = document.createElement("div")
         nomeDiv.id = "nome"
-
+        
         const h3Element = document.createElement("h3")
-        h3Element.textContent = member.Nome
 
         const pElement = document.createElement("p")
-        pElement.textContent = member.Cargo;
+
+        // Atribuindo conteúdo para os elementos criados
+
+        imgElement.src = member.Imagem
+        h3Element.textContent = member.Nome
+        pElement.textContent = member.Cargo
+
+        // Inserindo os elementos em suas respectivas Div's
 
         nomeDiv.appendChild(h3Element)
         nomeDiv.appendChild(pElement)
-
         profDiv.appendChild(imgElement)
         profDiv.appendChild(nomeDiv)
-
         equipeDiv.appendChild(profDiv)
       })
   }
 
-atualizarEquipe();
+  ListarEquipe();
