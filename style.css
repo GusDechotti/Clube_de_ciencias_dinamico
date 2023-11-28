@@ -242,14 +242,8 @@ p{
     background-color: #103973;
     align-items: center;
     margin: 10px;
+    padding: 20px;
 }
-
-.card img{
-    border-radius: 20px;
-    box-shadow: #000000b4 1px 5px 5px;
-    margin-bottom: 10px;
-}
-
 .card-reverse{
     display: flex;
     flex-direction: row-reverse;
@@ -259,6 +253,7 @@ p{
     background-color: #103973;
     align-items: center;
     margin: 10px;
+    padding: 20px;
 }
 
 .txt{
@@ -281,11 +276,6 @@ p{
     font-family: 'Inter', sans-serif;
 }
 
-.imagens-reponsivo{
-    display: flex;
-    margin: 15px;
-}
-
 .desc-lab{
     font-size: 18px;
     font-family: 'Inter', sans-serif;
@@ -295,8 +285,16 @@ p{
     width: 80%;
     display: flex;
     justify-content: space-around;
+    flex-direction: row-reverse;
 }
-
+.card-img-reverse div{
+    width: min-content;
+    
+}
+.card-img-reverse >img{
+    width: 500px;
+    height: 320px;
+}
 .card-img-reverse img{
     border-radius: 15px;
     box-shadow: #000000b4 1px 5px 5px;
@@ -305,15 +303,25 @@ p{
     width: 80%;
     display: flex;
     justify-content: space-around;
+}
+.card-img div{
+    width: min-content;
     
 }
-
+.card-img > img{
+    width: 500px;
+    height: 320px;
+}
 .card-img img{
     border-radius: 15px;
     box-shadow: #000000b4 1px 5px 5px;
 }
 
-
+.card-img-none img{
+    margin: 5px;
+    width: 200px;
+    height: 150px;
+}
 
 /* vantagens */
 .conteudo-vantagens{
