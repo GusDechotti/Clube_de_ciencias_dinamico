@@ -236,19 +236,26 @@ p{
 .card{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 90%;
     height: auto;
     border-radius: 20px;
     background-color: #103973;
-    color: white;
     align-items: center;
     margin: 10px;
-    padding: 20px;
+    padding: 10px;
 }
+
+.card img{
+    display: flex;
+    border-radius: 20px;
+    box-shadow: #000000b4 1px 5px 5px;
+    margin-bottom: 10px;
+}
+
 .card-reverse{
     display: flex;
     flex-direction: row-reverse;
-    width: 80%;
+    width: 90%;
     height: auto;
     border-radius: 20px;
     background-color: #103973;
@@ -258,7 +265,7 @@ p{
 }
 
 .txt{
-    margin: 20px;
+    margin: 0px;
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -283,19 +290,12 @@ p{
 
 }
 .card-img-reverse{
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
 }
-.card-img-reverse div{
-    width: min-content;
-    
-}
-.card-img-reverse >img{
-    width: 500px;
-    height: 320px;
-}
+
 .card-img-reverse img{
     border-radius: 15px;
     box-shadow: #000000b4 1px 5px 5px;
@@ -304,26 +304,13 @@ p{
     width: 80%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
-.card-img div{
-    width: min-content;
-    
-}
-.card-img > img{
-    width: 500px;
-    height: 320px;
-}
+
 .card-img img{
     border-radius: 15px;
     box-shadow: #000000b4 1px 5px 5px;
 }
-
-.card-img-none img{
-    margin: 5px;
-    width: 200px;
-    height: 150px;
-}
-
 /* vantagens */
 .conteudo-vantagens{
     width: 100%;
