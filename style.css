@@ -224,6 +224,13 @@ p{
     transform: scaleX(-1);
 }
 
+.laboratorios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /*LABORATORIOS */
 .cards{
     display: flex;
@@ -243,6 +250,7 @@ p{
     align-items: center;
     margin: 10px;
     padding: 10px;
+    color: white;
 }
 
 .card img{

@@ -1,23 +1,23 @@
 
-
-// Endpoint pego no query do Sanity
-
-const endpointClube = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22clube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A "
-
-// Pegando o elemento da tabela de informações do Clube
-
-const divTabela = document.getElementById("clubes")
-
 async function clube(){
+    // Endpoint pego no query do Sanity
+
+    const endpointClube = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22clube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A "
+
+
     const resultadoApiClube = await fetch(endpointClube, {
         method: "GET",
     })
 
     // Convertendo o fetch da api em um objeto JSON
 
-    const apiClubeJson = await resultadoApiClube.json();
+    const apiClubeJson = await resultadoApiClube.json()
 
     const apiClube = apiClubeJson.result[0]
+
+    // Pegando o elemento da tabela de informações do Clube
+
+    const divTabela = document.getElementById("clubes")
 
     // Adicionando o src da imagem
 

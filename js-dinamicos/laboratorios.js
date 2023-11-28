@@ -1,22 +1,22 @@
-// Endpoint pego no query do Sanity
-const endpointLaboratorios ="https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22laboratorios%22%5D%7B%0A++%22laboratorio%22%3A+laboratorio%2C%0A++%22descricao%22%3A+descricao%2C%0A++%22foto%22%3A+foto.asset-%3Eurl%2C%0A++%22fotopequena1%22%3A+fotoPequena1.asset-%3Eurl%2C%0A++%22fotopequena2%22%3A+fotoPequena2.asset-%3Eurl%2C%0A++%0A%7D";
-
-// Função assincrona consumindo a API 
 
 async function ListarTarefasLaboratorios() {
+
+  // Endpoint pego no query do Sanity
+  const endpointLaboratorios ="https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22laboratorios%22%5D%7B%0A++%22laboratorio%22%3A+laboratorio%2C%0A++%22descricao%22%3A+descricao%2C%0A++%22foto%22%3A+foto.asset-%3Eurl%2C%0A++%22fotopequena1%22%3A+fotoPequena1.asset-%3Eurl%2C%0A++%22fotopequena2%22%3A+fotoPequena2.asset-%3Eurl%2C%0A++%0A%7D";
+  
   const result = await fetch(endpointLaboratorios, {
     method: "GET",
   });
 
   // Convertendo o fetch da api em um objeto JSON
 
-  const data = await result.json();
+  const data = await result.json()
 
-  const cardLaboratorio = document.getElementById("cards-laboratorios");
+  const cardLaboratorio = document.getElementById("cards-laboratorios")
 
-  const laboratoriosInfo = data.result;
+  const laboratoriosInfo = data.result
 
-  var contador = 1;
+  var contador = 1
 
   // Percorrendo a lista de laboratorios para inseri-los no body
 

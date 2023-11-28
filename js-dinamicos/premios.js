@@ -1,10 +1,12 @@
 
+async function ListarPremios() {
+    
+    // Endpoint pego no query do Sanity
+    
+    const apiTarefas = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27premios%27%5D+%7C+order%28_createdAt+desc%29+%5B0...10%5D+%7B%0A++%22T%C3%ADtulo%22%3A+name%2C%0A++%22Descri%C3%A7%C3%A3o%22%3A+description%2C%0A++%22Imagem%22%3A+imagem.asset-%3Eurl%0A%7D"
 
-const API = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27premios%27%5D+%7C+order%28_createdAt+desc%29+%5B0...10%5D+%7B%0A++%22T%C3%ADtulo%22%3A+name%2C%0A++%22Descri%C3%A7%C3%A3o%22%3A+description%2C%0A++%22Imagem%22%3A+imagem.asset-%3Eurl%0A%7D"
-
-async function ListarTarefas() {
     // Realizando a requisição GET na API de tarefas
-    const result = await fetch(API, {
+    const result = await fetch(apiTarefas, {
         method: "GET",
     });
 
@@ -56,6 +58,6 @@ async function ListarTarefas() {
     });
 }
 
-ListarTarefas()
+ListarPremios()
 
 

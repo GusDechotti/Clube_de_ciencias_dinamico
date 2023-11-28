@@ -1,16 +1,11 @@
 
 
-// Endpoint pego no query do Sanity
-
-const endpointPreClube = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A ";
-
-// pegando a div de clubes no index
-
-const divTabelaClubes = document.querySelector('#clubes');
-
-// consumindo api
 
 async function adicionaPreClube(){
+    // Endpoint pego no query do Sanity
+
+    const endpointPreClube = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%22preclube%22%5D%7B%0A++%22descricao%22%3A+description%2C%0A++%22imagem%22%3A+imagem.asset-%3Eurl%2C%0A++%22horario%22%3A+horarios-%3E%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A ";
+
     const resultEndpointPreClube = await fetch(endpointPreClube, {
         method: "GET",
     });
@@ -20,6 +15,10 @@ async function adicionaPreClube(){
     const apiJsonPreClube = await resultEndpointPreClube.json();
 
     const api = apiJsonPreClube.result[0]
+
+    // pegando a div de clubes no index
+
+    const divTabelaClubes = document.querySelector('#clubes');
 
     // pegando elemento que irá a imagem
 
