@@ -60,7 +60,7 @@ async function clube(){
 
         // Criando o o td de conteudo da linha, adicionando a classe e o conteudo.
         
-        var diaDaSemana = document.createElement("td");
+        var diaDaSemana = document.createElement("td")
         diaDaSemana.classList.add("dia-semana")
         diaDaSemana.innerText = diaSemana.dias
 

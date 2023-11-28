@@ -2,7 +2,7 @@
 
 // Endpoint pego no query do sanity (limitado a 10 noticias)
 
-const APINOTICIA = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27noticia%27%5D+%7C+order%28_createdAt+asc%29+%5B0...10%5D+%7B%0A++titulo%2C%0A++subtitulo%2C%0A++conteudo%2C%0A++%27imagem%27%3A+imagem.asset-%3Eurl%2C%0A++data%0A%7D"
+const APINOTICIA = "https://hmwoh9gp.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type+%3D%3D+%27noticia%27%5D+%7C+order%28_createdAt+desc%29+%5B0...10%5D+%7B%0A++titulo%2C%0A++subtitulo%2C%0A++conteudo%2C%0A++%27imagem%27%3A+imagem.asset-%3Eurl%2C%0A++data%0A%7D"
 
 // Função assincrona consumindo a API 
 
