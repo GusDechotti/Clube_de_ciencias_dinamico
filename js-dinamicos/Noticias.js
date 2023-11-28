@@ -1,7 +1,4 @@
 
-
-
-
 async function noticias(){
     // Endpoint pego no query do sanity (limitado a 10 noticias)
 

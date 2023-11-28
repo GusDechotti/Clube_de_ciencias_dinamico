@@ -46,7 +46,7 @@ async function Equipe() {
 
       imgElement.src = member.Imagem
       h3Element.textContent = member.Nome
-      pElement.textContent = member.Cargo;
+      pElement.textContent = member.Cargo
 
       // insere os elementos em suas respectivas divs
 
